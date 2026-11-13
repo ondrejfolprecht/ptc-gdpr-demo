@@ -1,0 +1,271 @@
+{
+  "chapters": [
+    [
+      "Úvod",
+      "Jeden běžný den v PTC",
+      1,
+      "home"
+    ],
+    [
+      "E-mail",
+      "Než kliknete na Odeslat",
+      2,
+      "mail"
+    ],
+    [
+      "Žádosti",
+      "Komu můžete údaje předat?",
+      3,
+      "phone"
+    ],
+    [
+      "Kamery",
+      "I náhled je přístup k údajům",
+      2,
+      "camera"
+    ],
+    [
+      "Práce s AI",
+      "Co smí do AI nástroje?",
+      3,
+      "spark"
+    ],
+    [
+      "Tahák",
+      "Čtyři pravidla do praxe",
+      1,
+      "list"
+    ],
+    [
+      "Test",
+      "Závěrečný test",
+      3,
+      "award"
+    ]
+  ],
+  "intro": "Přijde e-mail s přílohou, zazvoní telefon nebo potřebujete rychle upravit text pomocí AI. V každé z těchto situací se rozhoduje o tom, kdo se dostane k údajům pacientů. Za 15 minut si vyzkoušíte, jak postupovat.",
+  "mail": [
+    "Jméno a e-mail jsou osobní údaje. Diagnóza nebo lékařská zpráva obsahuje údaje o zdraví, které mají zvláštní ochranu. Sdílejte jen to, co příjemce pro daný účel potřebuje, a použijte schválený kanál.",
+    [
+      [
+        "Komu",
+        "podatelna@partner.example",
+        "Ověřte skutečnou adresu a oprávnění příjemce. Automatické doplnění adresy může nabídnout nesprávný kontakt."
+      ],
+      [
+        "Předmět a odesílatel",
+        "Re: účet",
+        "Použijte pravdivý předmět, který prozrazuje jen nezbytné informace. U příchozího požadavku ověřte skutečnou adresu odesílatele, pokud je něco podezřelé."
+      ],
+      [
+        "Příloha",
+        "Lékařská zpráva – modelová příloha.pdf",
+        "Otevřete správnou přílohu a zkontrolujte rozsah údajů i schválený způsob předání."
+      ]
+    ]
+  ],
+  "incident": {
+    "title": "Zjistíte, že zpráva s lékařskou přílohou už odešla nesprávnému příjemci. Jaký je první krok?",
+    "choices": [
+      "Hned ohlásit incident schváleným interním kanálem",
+      "Počkat na potvrzení příjemce",
+      "Smazat zprávu z odeslané pošty"
+    ],
+    "key": 0,
+    "feedback": [
+      "Podezření nahlaste hned, i když zatím nevíte, jestli příjemce přílohu otevřel. Další kroky koordinuje pověřený tým."
+    ]
+  },
+  "requests": [
+    {
+      "title": "Volající se představí jako člen rodiny a chce znát termín léčby. Zná pacientovo jméno a datum narození.",
+      "label": "Telefonát",
+      "choices": [
+        "Termín sdělím",
+        "Údaje zatím nesdělím a požadavek předám k ověření"
+      ],
+      "key": 1,
+      "feedback": [
+        "Termín mohl získat někdo, kdo k němu nemá oprávnění. Podezření teď předejte k internímu řešení. Znalost údajů pacienta sama o sobě neprokazuje oprávnění.",
+        "Požadavek je předaný k ověření a termín zatím zůstává neveřejný. Znalost údajů pacienta sama o sobě neprokazuje oprávnění."
+      ]
+    },
+    {
+      "title": "Přijde e-mail, který se tváří jako žádost Policie ČR o kopii celé zprávy.",
+      "label": "Formální žádost",
+      "choices": [
+        "Odešlu zprávu na adresu z e-mailu",
+        "Předám žádost k ověření schváleným postupem"
+      ],
+      "key": 1,
+      "feedback": [
+        "Celá zpráva by odešla na adresu, kterou jste neověřili.",
+        "Pověřená osoba ověří žadatele a posoudí, jestli je možné údaje předat a v jakém rozsahu."
+      ]
+    },
+    {
+      "title": "Pacient chce vymazat celou zdravotnickou dokumentaci. Co uděláte?",
+      "label": "Žádost o výmaz",
+      "choices": [
+        "Smažu dokumentaci",
+        "Žádost předám k vyřízení",
+        "Žádost ignoruji"
+      ],
+      "key": 1,
+      "feedback": [
+        "Právo na výmaz má výjimky, například při zákonné povinnosti dokumentaci uchovávat. Žádost předejte odpovědné osobě k posouzení a vyřízení."
+      ]
+    }
+  ],
+  "camera": {
+    "title": "Kolega chce zjistit, kdo se pohyboval po chodbě. Prosí vás, abyste mu na chvíli otevřeli uložený záznam. Nic si prý nebude kopírovat.",
+    "choices": [
+      "Otevřít náhled",
+      "Předat požadavek podle schváleného postupu",
+      "Poslat záznam interním chatem"
+    ],
+    "key": 1,
+    "feedback": [
+      "I samotné zhlédnutí je přístup k osobním údajům. U kamer je důležitý účel i oprávnění ke konkrétnímu přístupu.",
+      "Postup platí pro náhled i vydání kopie. Oprávnění, účel a rozsah prověří pověřená osoba.",
+      "Odeslání záznamu rozšiřuje okruh osob s přístupem. Požadavek má projít schváleným postupem."
+    ]
+  },
+  "aiIntro": "Shadow AI je používání nástrojů mimo schválený rámec organizace. AI může vytvořit i přesvědčivý, ale chybný výstup. Používejte schválené nástroje pro schválený účel a výsledky kontrolujte.",
+  "aiScenes": [
+    [
+      "Připravujete dopis pro pacienta",
+      "Představte si, že potřebujete rychle zjednodušit dopis pro pacienta. V dopise je jeho jméno, diagnóza a termín léčby. Nástroj s umělou inteligencí by práci urychlil. Jak byste postupovali?",
+      "file"
+    ],
+    [
+      "Zastavte se před vložením textu",
+      "Vymazat jméno samo o sobě nestačí. Člověka může prozradit kombinace diagnózy, termínu a dalších údajů. Údaje nahrazené kódem mohou být stále osobními údaji.",
+      "lock"
+    ],
+    [
+      "Připravte fiktivní příklad",
+      "Pro běžné návrhy si připravte obecné zadání nebo zcela fiktivní příklad a použijte nástroj schválený pro danou práci. Výsledek si vždy přečtěte a ověřte. Za jeho použití odpovídá člověk.",
+      "check"
+    ]
+  ],
+  "ai": {
+    "title": "Co je pro vytvoření obecné šablony vhodný postup?",
+    "choices": [
+      "Vložit celý skutečný dopis do neschváleného AI nástroje",
+      "Odstranit jméno a vložit skutečný zbytek textu",
+      "Vložit pouze fiktivní příklad do nástroje schváleného pro danou práci"
+    ],
+    "key": 2,
+    "feedback": [
+      "V tomto nástroji nemáte schválené použití údajů z dopisu.",
+      "Identifikace může být možná i z dalších informací.",
+      "Fiktivní příklad stačí k vytvoření obecné šablony. Před použitím výsledek zkontrolujte."
+    ]
+  },
+  "aiTable": [
+    [
+      "Obecný návrh textu na fiktivním příkladu",
+      "Použijte nástroj schválený pro danou práci a výstup ověřte."
+    ],
+    [
+      "Skutečná zpráva s identifikátorem nahrazeným kódem",
+      "Může dál obsahovat osobní údaje. Postupujte podle schváleného procesu pro daný nástroj a typ údajů."
+    ],
+    [
+      "Nový nástroj nebo nový způsob použití",
+      "Ověřte interní pravidla a požádejte o posouzení před použitím."
+    ]
+  ],
+  "study": {
+    "value": 67.6,
+    "label": "respondentů uvedlo, že jejich zařízení AI používá nebo testuje.",
+    "detail": "Národní průzkum MZ ČR, únor 2026. Odpovědělo 105 respondentů z různých typů zdravotnických zařízení.",
+    "url": "https://mzd.gov.cz/tiskove-centrum-mz/narodni-pruzkum-ministerstva-zdravotnictvi-umela-inteligence-se-stava-beznou-soucasti-ceskeho-zdravotnictvi/"
+  },
+  "rules": [
+    [
+      "Před odesláním",
+      "Ověřte příjemce, rozsah údajů a způsob předání.",
+      "mail"
+    ],
+    [
+      "Při žádosti o údaje",
+      "U žádosti o údaje, výmaz či kamerový záznam použijte schválený interní postup.",
+      "file"
+    ],
+    [
+      "Při podezření na incident",
+      "Hned použijte interní ohlašovací kanál.",
+      "alert"
+    ],
+    [
+      "Při práci s AI",
+      "Ověřte, že nástroj i účel jsou schválené, a zkontrolujte výstup.",
+      "spark"
+    ]
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "prompt": "Odešlete e-mail s lékařskou zprávou na nesprávnou adresu. Jaký je první krok?",
+      "choices": [
+        "Počkat, zda se příjemce ozve.",
+        "Hned ohlásit podezření na incident schváleným interním kanálem.",
+        "Smazat e-mail z odeslaných zpráv."
+      ],
+      "key": 1,
+      "feedback": "Rychlé ohlášení umožní začít situaci posuzovat a omezit dopad.",
+      "chapter": 1
+    },
+    {
+      "id": 2,
+      "prompt": "Volající se představí jako člen rodiny. Zná datum narození pacienta a ptá se na výsledek vyšetření. Jak postupovat?",
+      "choices": [
+        "Výsledek sdělit, když datum narození souhlasí.",
+        "Výsledek sdělit, pokud volající slíbí, že si ho nechá pro sebe.",
+        "Údaj zatím nesdělit a postupovat podle pravidel pro ověření totožnosti a oprávnění."
+      ],
+      "key": 2,
+      "feedback": "Znalost data narození nepotvrzuje oprávnění.",
+      "chapter": 2
+    },
+    {
+      "id": 3,
+      "prompt": "Pacient požádá o výmaz celé zdravotnické dokumentace. Co uděláte?",
+      "choices": [
+        "Žádost předáte k vyřízení podle interního postupu.",
+        "Záznam ihned vymažete.",
+        "Žádost odložíte bez dalšího kroku."
+      ],
+      "key": 0,
+      "feedback": "U dokumentace mohou platit zákonné povinnosti uchování. Žádost musí být posouzena.",
+      "chapter": 2
+    },
+    {
+      "id": 4,
+      "prompt": "Kolega chce jen nahlédnout do uloženého kamerového záznamu. Jak postupovat?",
+      "choices": [
+        "Náhled povolit, pokud kolega nic nekopíruje.",
+        "Použít stejný schválený postup pro ověření oprávnění k přístupu.",
+        "Poslat krátký výřez záznamu interním chatem."
+      ],
+      "key": 1,
+      "feedback": "I samotné zhlédnutí vyžaduje oprávnění a posouzení účelu.",
+      "chapter": 3
+    },
+    {
+      "id": 5,
+      "prompt": "Chcete z lékařské zprávy odstranit jméno a vložit ji do neschváleného AI nástroje. Je to vhodné?",
+      "choices": [
+        "Ano, pokud odstraníte jméno.",
+        "Ano, pokud text následně zkontrolujete.",
+        "Ne. Další údaje mohou pacienta identifikovat. Pro šablonu použijte fiktivní příklad ve schváleném nástroji."
+      ],
+      "key": 2,
+      "feedback": "Odstranění jména samo nezaručuje anonymitu.",
+      "chapter": 4
+    }
+  ],
+  "pass": 4
+}

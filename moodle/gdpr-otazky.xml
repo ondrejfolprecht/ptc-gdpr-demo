@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <question type="multichoice">
+    <name><text>PTC GDPR 1 · E-mail</text></name>
+    <questiontext format="plain_text"><text>Odešlete e-mail s lékařskou zprávou na nesprávnou adresu. Jaký je první krok?</text></questiontext>
+    <generalfeedback format="plain_text"><text>Rychlé ohlášení umožní začít situaci posuzovat a omezit dopad.</text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="0" format="plain_text">
+      <text>Počkat, zda se příjemce ozve.</text>
+      <feedback format="plain_text"><text>Rychlé ohlášení umožní začít situaci posuzovat a omezit dopad.</text></feedback>
+    </answer>
+    <answer fraction="100" format="plain_text">
+      <text>Hned ohlásit podezření na incident schváleným interním kanálem.</text>
+      <feedback format="plain_text"><text>Správně. Rychlé ohlášení umožní začít situaci posuzovat a omezit dopad.</text></feedback>
+    </answer>
+    <answer fraction="0" format="plain_text">
+      <text>Smazat e-mail z odeslaných zpráv.</text>
+      <feedback format="plain_text"><text>Rychlé ohlášení umožní začít situaci posuzovat a omezit dopad.</text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>PTC GDPR 2 · Žádosti</text></name>
+    <questiontext format="plain_text"><text>Volající se představí jako člen rodiny. Zná datum narození pacienta a ptá se na výsledek vyšetření. Jak postupovat?</text></questiontext>
+    <generalfeedback format="plain_text"><text>Znalost data narození nepotvrzuje oprávnění.</text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="0" format="plain_text">
+      <text>Výsledek sdělit, když datum narození souhlasí.</text>
+      <feedback format="plain_text"><text>Znalost data narození nepotvrzuje oprávnění.</text></feedback>
+    </answer>
+    <answer fraction="0" format="plain_text">
+      <text>Výsledek sdělit, pokud volající slíbí, že si ho nechá pro sebe.</text>
+      <feedback format="plain_text"><text>Znalost data narození nepotvrzuje oprávnění.</text></feedback>
+    </answer>
+    <answer fraction="100" format="plain_text">
+      <text>Údaj zatím nesdělit a postupovat podle pravidel pro ověření totožnosti a oprávnění.</text>
+      <feedback format="plain_text"><text>Správně. Znalost data narození nepotvrzuje oprávnění.</text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>PTC GDPR 3 · Žádosti</text></name>
+    <questiontext format="plain_text"><text>Pacient požádá o výmaz celé zdravotnické dokumentace. Co uděláte?</text></questiontext>
+    <generalfeedback format="plain_text"><text>U dokumentace mohou platit zákonné povinnosti uchování. Žádost musí být posouzena.</text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="plain_text">
+      <text>Žádost předáte k vyřízení podle interního postupu.</text>
+      <feedback format="plain_text"><text>Správně. U dokumentace mohou platit zákonné povinnosti uchování. Žádost musí být posouzena.</text></feedback>
+    </answer>
+    <answer fraction="0" format="plain_text">
+      <text>Záznam ihned vymažete.</text>
+      <feedback format="plain_text"><text>U dokumentace mohou platit zákonné povinnosti uchování. Žádost musí být posouzena.</text></feedback>
+    </answer>
+    <answer fraction="0" format="plain_text">
+      <text>Žádost odložíte bez dalšího kroku.</text>
+      <feedback format="plain_text"><text>U dokumentace mohou platit zákonné povinnosti uchování. Žádost musí být posouzena.</text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>PTC GDPR 4 · Kamery</text></name>
+    <questiontext format="plain_text"><text>Kolega chce jen nahlédnout do uloženého kamerového záznamu. Jak postupovat?</text></questiontext>
+    <generalfeedback format="plain_text"><text>I samotné zhlédnutí vyžaduje oprávnění a posouzení účelu.</text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="0" format="plain_text">
+      <text>Náhled povolit, pokud kolega nic nekopíruje.</text>
+      <feedback format="plain_text"><text>I samotné zhlédnutí vyžaduje oprávnění a posouzení účelu.</text></feedback>
+    </answer>
+    <answer fraction="100" format="plain_text">
+      <text>Použít stejný schválený postup pro ověření oprávnění k přístupu.</text>
+      <feedback format="plain_text"><text>Správně. I samotné zhlédnutí vyžaduje oprávnění a posouzení účelu.</text></feedback>
+    </answer>
+    <answer fraction="0" format="plain_text">
+      <text>Poslat krátký výřez záznamu interním chatem.</text>
+      <feedback format="plain_text"><text>I samotné zhlédnutí vyžaduje oprávnění a posouzení účelu.</text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>PTC GDPR 5 · Práce s AI</text></name>
+    <questiontext format="plain_text"><text>Chcete z lékařské zprávy odstranit jméno a vložit ji do neschváleného AI nástroje. Je to vhodné?</text></questiontext>
+    <generalfeedback format="plain_text"><text>Odstranění jména samo nezaručuje anonymitu.</text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="0" format="plain_text">
+      <text>Ano, pokud odstraníte jméno.</text>
+      <feedback format="plain_text"><text>Odstranění jména samo nezaručuje anonymitu.</text></feedback>
+    </answer>
+    <answer fraction="0" format="plain_text">
+      <text>Ano, pokud text následně zkontrolujete.</text>
+      <feedback format="plain_text"><text>Odstranění jména samo nezaručuje anonymitu.</text></feedback>
+    </answer>
+    <answer fraction="100" format="plain_text">
+      <text>Ne. Další údaje mohou pacienta identifikovat. Pro šablonu použijte fiktivní příklad ve schváleném nástroji.</text>
+      <feedback format="plain_text"><text>Správně. Odstranění jména samo nezaručuje anonymitu.</text></feedback>
+    </answer>
+  </question>
+</quiz>
