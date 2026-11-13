@@ -1,4 +1,5 @@
 import course from './course.json'
+import { recap } from './lesson-content'
 
 const storageKey = 'ptc-gdpr-demo:v1'
 const lessonCount = course.chapters.length - 1
@@ -6,6 +7,10 @@ const lessonCount = course.chapters.length - 1
 export type Progress = {
   chapter: number
   completed: number[]
+  phase: 'theory' | 'practice'
+  theoryRead: number[]
+  recap: number | null
+  mailStep: 0 | 1
   visited: number[]
   incident: number | null
   requestStep: number
@@ -20,7 +25,7 @@ export type Progress = {
 
 export function fresh(): Progress {
   return {
-    chapter: 0, completed: [], visited: [], incident: null,
+    chapter: 0, completed: [], phase: 'theory', theoryRead: [], recap: null, mailStep: 0, visited: [], incident: null,
     requestStep: 0, requests: [null, null, null], camera: null,
     aiStep: 0, ai: null, answers: course.questions.map(() => null),
     submitted: false, best: null,
@@ -51,6 +56,10 @@ export function readProgress(): Progress {
     const progress: Progress = {
       chapter: bounded(value.chapter, lessonCount) ?? 0,
       completed: numericSet(value.completed, lessonCount - 1),
+      phase: 'theory',
+      theoryRead: numericSet(value.theoryRead, lessonCount - 1),
+      recap: bounded(value.recap, recap.choices.length - 1),
+      mailStep: value.mailStep === 1 ? 1 : 0,
       visited: numericSet(value.visited, course.mail[1].length - 1),
       incident: bounded(value.incident, course.incident.choices.length - 1),
       requestStep: bounded(value.requestStep, course.requests.length - 1) ?? 0,
@@ -63,6 +72,8 @@ export function readProgress(): Progress {
       best: bounded(value.best, course.questions.length),
     }
     if (!unlocked(progress, progress.chapter)) progress.chapter = 0
+    if (value.phase === 'practice' && progress.theoryRead.includes(progress.chapter)) progress.phase = 'practice'
+    if (progress.visited.length < course.mail[1].length) progress.mailStep = 0
     return progress
   } catch {
     return fresh()

@@ -1,6 +1,6 @@
 # GDPR v praxi PTC
 
-České interaktivní demo pro Protonové centrum. Šest krátkých lekcí, závěrečný test a ukázkové potvrzení. Kurz trvá přibližně 15 minut. Obsah a test vycházejí z jednoho souboru `src/course.json`.
+České interaktivní demo pro Protonové centrum. Šest krátkých lekcí, závěrečný test a ukázkové potvrzení. Rozhraní je inspirované motivem Moodle Boost. Každé výukové téma má nejdřív teorii a potom procvičení. Kurz trvá přibližně 15 minut. Obsah a test vycházejí z jednoho souboru `src/course.json`.
 
 ## Spuštění u sebe
 
@@ -18,7 +18,7 @@ Otevři adresu z terminálu. Produkční sestavení vytvoříš pomocí `npm run
 1. Nahraj obsah kořene projektu do repozitáře včetně skryté složky `.github`. Do repozitáře patří `package-lock.json`, nikoli `node_modules` a `dist`.
 2. Na GitHubu otevři **Settings → Pages → Build and deployment**. Jako **Source** vyber **GitHub Actions**.
 3. V **Actions** otevři **Nasazení GDPR dema** a na hlavní větvi zvol **Run workflow**.
-4. Hotovou adresu najdeš u úlohy **deploy** nebo v **Settings → Pages**. Workflow nastaví cestu podle konfigurace GitHub Pages.
+4. Další změny ve větvi `main` spustí nové nasazení automaticky. Hotovou adresu najdeš u úlohy **deploy** nebo v **Settings → Pages**. Workflow nastaví cestu podle konfigurace GitHub Pages.
 
 Projekt používá fiktivní situace. Pokud budeš vyměňovat ilustrace nebo texty pro veřejný web, použij schválená veřejná média a modelové údaje. Odpovědi, postup i skóre zůstávají v aktuálním prohlížeči. Tlačítko **Smazat postup** je odstraní.
 
