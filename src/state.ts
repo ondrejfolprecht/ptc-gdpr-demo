@@ -15,6 +15,9 @@ export type Progress = {
   incident: number | null
   requestStep: number
   requests: (number | null)[]
+  requestMatches: (number | null)[]
+  aiCategories: (number | null)[]
+  recapWords: (number | null)[]
   camera: number | null
   aiStep: number
   ai: number | null
@@ -26,7 +29,7 @@ export type Progress = {
 export function fresh(): Progress {
   return {
     chapter: 0, completed: [], phase: 'theory', theoryRead: [], recap: null, mailStep: 0, visited: [], incident: null,
-    requestStep: 0, requests: [null, null, null], camera: null,
+    requestStep: 0, requests: [null, null, null], requestMatches: [null, null, null], aiCategories: [null, null, null, null], recapWords: [null, null, null], camera: null,
     aiStep: 0, ai: null, answers: course.questions.map(() => null),
     submitted: false, best: null,
   }
@@ -64,6 +67,9 @@ export function readProgress(): Progress {
       incident: bounded(value.incident, course.incident.choices.length - 1),
       requestStep: bounded(value.requestStep, course.requests.length - 1) ?? 0,
       requests: course.requests.map((request, index) => bounded(value.requests?.[index], request.choices.length - 1)),
+      requestMatches: [0, 1, 2].map(index => bounded(value.requestMatches?.[index], 2)),
+      aiCategories: [0, 1, 2, 3].map(index => bounded(value.aiCategories?.[index], 1)),
+      recapWords: [0, 1, 2].map(index => bounded(value.recapWords?.[index], 4)),
       camera: bounded(value.camera, course.camera.choices.length - 1),
       aiStep: bounded(value.aiStep, course.aiScenes.length - 1) ?? 0,
       ai: bounded(value.ai, course.ai.choices.length - 1),
