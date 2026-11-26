@@ -174,7 +174,7 @@ function App() {
               <div>
                 <h2>Úvod</h2>
                 <p className="lead">{course.intro}</p>
-                <div className="intro-meta"><span><Icon name="clock" size={17} /> Přibližně 15 min</span><span><Icon name="list" size={17} /> 6 lekcí a test</span></div>
+                <div className="intro-meta"><span><Icon name="clock" size={17} /> Přibližně 20–25 min</span><span><Icon name="list" size={17} /> 6 lekcí a test</span></div>
                 <button className="primary" onClick={() => done ? go(resumeChapter) : next()}>{done ? 'Pokračovat v kurzu' : 'Začít kurz'} <Icon name="next" size={18} /></button>
               </div>
               <img className="course-image" src={new URL('./reception.svg', import.meta.url).href} alt="" />
