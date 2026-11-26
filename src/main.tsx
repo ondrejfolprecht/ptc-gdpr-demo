@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import Icon from './Icon'
 import course from './course.json'
 import { lessons } from './lesson-content'
+import { theoryExtras, recapExtras } from './theory-content'
 import { fresh, readProgress, saveProgress, score, unlocked } from './state'
 import type { Progress } from './state'
 import { MatchBoard, WordGaps, requestCards, requestTargets, aiCards, aiTargets, recapWordKeys } from './PracticeActivities'
@@ -51,6 +52,7 @@ function App() {
   const allMailChecked = progress.visited.length === course.mail[1].length
   const mailFields = course.mail[1] as string[][]
   const theory = lesson && 'learn' in lesson ? lesson : undefined
+  const theoryExtra = theoryExtras[chapter]
   const allAnswers = progress.answers.every(answer => answer !== null)
   const result = score(progress.answers)
   const activeQuestion = course.questions[quizIndex]
@@ -207,8 +209,36 @@ function App() {
             </nav>}
             {theory && !practice && <div className="lesson-theory">
               <h2>Co se naučíte</h2><p className="lead">{theory.learn}</p>
-              {theory.rules.map(([label, copy]) => <div className="theory-rule" key={label}><h3>{label}</h3><p>{copy}</p></div>)}
-              <div className="worked-example"><h3>Příklad z praxe</h3><p>{theory.example}</p></div>
+              {theoryExtra && <div className="theory-hero">
+                <div className="theory-hero-copy">
+                  <span className="theory-overline">GDPR V KAŽDODENNÍ PRAXI</span>
+                  <h2>Proč na tom záleží</h2>
+                  <p>{theoryExtra.lead}</p>
+                  <p>{theoryExtra.why}</p>
+                </div>
+                <figure className="theory-photo">
+                  <img src={theoryExtra.photo.src} alt={theoryExtra.photo.alt} loading="lazy" decoding="async"/>
+                  <figcaption>Ilustrační foto · <a href={theoryExtra.photo.url} target="_blank" rel="noreferrer">{theoryExtra.photo.credit}</a></figcaption>
+                </figure>
+              </div>}
+              <h2 className="theory-section-title">Základní pravidla</h2>
+              <div className="theory-rules">{theory.rules.map(([label, copy], i) => <div className="theory-rule-card" key={label}>
+                <span className="theory-number">{String(i+1).padStart(2,'0')}</span><div><h3>{label}</h3><p>{copy}</p></div>
+              </div>)}</div>
+              {theoryExtra && <>
+                <div className="theory-section-intro"><h2>Příklady z praxe</h2><p>Tři modelové situace, se kterými se můžete setkat i v běžném provozu zdravotnického zařízení.</p></div>
+                <div className="theory-examples">{theoryExtra.examples.map((example, i) => <article className="theory-example" key={example.title}>
+                  <div className="theory-example-head"><span>PŘÍKLAD {i + 1}</span><h3>{example.title}</h3></div>
+                  <p>{example.situation}</p>
+                  <div className="theory-example-action"><strong>Jak postupovat</strong><p>{example.action}</p></div>
+                  <p className="theory-takeaway"><Icon name="check" size={17}/>{example.takeaway}</p>
+                </article>)}</div>
+                <div className="theory-pitfall"><Icon name="alert" size={21}/><div><h3>Častý omyl</h3><p>{theoryExtra.mistake}</p></div></div>
+                <section className="theory-checklist"><div><span className="theory-overline">PŘED PROCVIČENÍM</span><h2>Rychlý checklist</h2><p>Otázky, které si stačí položit před podobnou situací v práci.</p></div>
+                  <ul>{theoryExtra.checklist.map(item => <li key={item}><Icon name="check" size={17}/><span>{item}</span></li>)}</ul>
+                </section>
+                {theoryExtra.note && <p className="theory-note"><strong>Poznámka pro PTC:</strong> {theoryExtra.note}</p>}
+              </>}
               {chapter === 4 && <>
                 <h2>Co udělat v konkrétní situaci</h2>
                 <table><thead><tr><th scope="col">Zadání</th><th scope="col">Jak postupovat</th></tr></thead><tbody>{course.aiTable.map(([s, action]) => <tr key={s}><th scope="row">{s}</th><td>{action}</td></tr>)}</tbody></table>
@@ -267,8 +297,10 @@ function App() {
               items={aiCards} targets={aiTargets} assignments={progress.aiCategories}
               onChange={aiCategories => update({ aiCategories })} />}
             {chapter === 5 && !practice && <>
+              <div className="recap-intro"><h2>{recapExtras.heading}</h2><p>{recapExtras.intro}</p></div>
               <h2 className="recap-heading">Čtyři pravidla do praxe</h2>
               <div className="rules">{course.rules.map(([label, content, icon]) => <div key={label}><span className="nav-icon"><Icon name={icon} /></span><h3>{label}</h3><p>{content}</p></div>)}</div>
+              <div className="recap-reflection"><h2>Zkuste si odpovědět</h2><ul>{recapExtras.questions.map(item => <li key={item}><Icon name="check" size={17}/>{item}</li>)}</ul><p>{recapExtras.footer}</p></div>
             </>}
             {chapter === 5 && practice && <WordGaps values={progress.recapWords} onChange={recapWords => update({ recapWords })} />}
             {chapter === testChapter && attemptView === 'certificate' && passed && <div className="certificate-wrap">
