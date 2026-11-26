@@ -2,9 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import Icon from './Icon'
 import course from './course.json'
-import { lessons, recap } from './lesson-content'
+import { lessons } from './lesson-content'
 import { fresh, readProgress, saveProgress, score, unlocked } from './state'
 import type { Progress } from './state'
+import { MatchBoard, WordGaps, requestCards, requestTargets, aiCards, aiTargets, recapWordKeys } from './PracticeActivities'
 import './style.css'
 
 type Activity = typeof course.incident
@@ -50,7 +51,6 @@ function App() {
   const allMailChecked = progress.visited.length === course.mail[1].length
   const mailFields = course.mail[1] as string[][]
   const theory = lesson && 'learn' in lesson ? lesson : undefined
-  const selected = course.requests[progress.requestStep]
   const allAnswers = progress.answers.every(answer => answer !== null)
   const result = score(progress.answers)
   const activeQuestion = course.questions[quizIndex]
@@ -91,8 +91,9 @@ function App() {
   }
 
   const ready = [true, allMailChecked && progress.mailStep === 1 && progress.incident !== null,
-    progress.requestStep === course.requests.length - 1 && progress.requests.every(a => a !== null),
-    progress.camera !== null, progress.aiStep === course.aiScenes.length - 1 && progress.ai !== null, progress.recap !== null][chapter]
+    progress.requestMatches.every((value, i) => value === requestCards[i].correct),
+    progress.camera !== null, progress.aiStep === course.aiScenes.length - 1 && progress.aiCategories.every((value,i) => value === aiCards[i].correct) && progress.ai !== null,
+    progress.recapWords.every((value,i) => value === recapWordKeys[i])][chapter]
 
   function visit(index: number) {
     setHotspot(index)
@@ -237,13 +238,9 @@ function App() {
                 <button className="link-button inline" onClick={() => update({ mailStep: 0 })}>Zpět ke kontrole konceptu</button>
               </>}
             </>}
-            {chapter === 2 && practice && <div className="scenario">
-              <div className="step-label"><Icon name={progress.requestStep === 0 ? 'phone' : 'file'} /> {progress.requestStep + 1}/3 · {selected.label}</div>
-              <h2 ref={caseHeading} tabIndex={-1}>Jak byste postupovali?</h2>
-              <Choice data={selected} value={progress.requests[progress.requestStep]} select={index => update({ requests: progress.requests.map((answer, i) => i === progress.requestStep ? index : answer) })} />
-              {progress.requestStep < course.requests.length - 1 && <button className="primary inline" disabled={progress.requests[progress.requestStep] === null} onClick={() => { update({ requestStep: progress.requestStep + 1 }); setCaseMoved(true) }}>Další situace <Icon name="next" size={17} /></button>}
-              {progress.requestStep > 0 && <button className="link-button inline" onClick={() => { update({ requestStep: progress.requestStep - 1 }); setCaseMoved(true) }}>Předchozí situace</button>}
-            </div>}
+            {chapter === 2 && practice && <MatchBoard title="Přiřaďte žádost ke správnému postupu"
+              items={requestCards} targets={requestTargets} assignments={progress.requestMatches}
+              unique onChange={requestMatches => update({ requestMatches })} />}
             {chapter === 3 && practice && <>
               <div className="camera-art" aria-hidden="true"><div className="camera-wall" /><span className="camera-lens"><Icon name="camera" size={53} /></span></div>
               <Choice data={course.camera} value={progress.camera} select={index => update({ camera: index })} />
@@ -265,11 +262,15 @@ function App() {
                 {progress.aiStep > 0 && <button className="link-button inline" onClick={() => update({ aiStep: progress.aiStep - 1 })}>Předchozí záběr</button>}
               </div>
             </>}
+            {chapter === 4 && practice && progress.aiStep === course.aiScenes.length - 1 && progress.ai !== null && <MatchBoard
+              title="Roztřiďte informace pro práci s AI"
+              items={aiCards} targets={aiTargets} assignments={progress.aiCategories}
+              onChange={aiCategories => update({ aiCategories })} />}
             {chapter === 5 && !practice && <>
               <h2 className="recap-heading">Čtyři pravidla do praxe</h2>
               <div className="rules">{course.rules.map(([label, content, icon]) => <div key={label}><span className="nav-icon"><Icon name={icon} /></span><h3>{label}</h3><p>{content}</p></div>)}</div>
             </>}
-            {chapter === 5 && practice && <Choice data={recap} value={progress.recap} select={index => update({ recap: index })} />}
+            {chapter === 5 && practice && <WordGaps values={progress.recapWords} onChange={recapWords => update({ recapWords })} />}
             {chapter === testChapter && attemptView === 'certificate' && passed && <div className="certificate-wrap">
               <div className="certificate"><span className="demo">DEMO</span><Icon name="award" size={54} /><h2>Potvrzení o absolvování</h2><p>GDPR v praxi PTC</p><strong>Ukázkový účastník</strong><p>Nejlepší výsledek {progress.best} z 5</p><p>Ukázkový kurz Protonového centra</p></div>
               <div className="cert-actions"><button className="secondary" onClick={() => setAttemptView('quiz')}>Zpět k výsledku</button><button className="primary" onClick={() => window.print()}><Icon name="print" /> Tisk nebo uložení PDF</button></div>
