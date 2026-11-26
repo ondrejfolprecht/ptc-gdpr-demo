@@ -1,6 +1,6 @@
 # GDPR v praxi PTC
 
-České interaktivní demo pro Protonové centrum. Šest krátkých lekcí, závěrečný test a ukázkové potvrzení. Rozhraní je inspirované motivem Moodle Boost. Každé výukové téma má nejdřív teorii a potom procvičení. Kurz trvá přibližně 15 minut. Obsah a test vycházejí z jednoho souboru `src/course.json`.
+České interaktivní demo pro Protonové centrum. Šest krátkých lekcí, závěrečný test a ukázkové potvrzení. Rozhraní je inspirované motivem Moodle Boost. Každé výukové téma má nejdřív teorii a potom procvičení. Po rozšíření teorie kurz trvá přibližně 20–25 minut. Fotografie v teoretických částech jsou ilustrační a pocházejí z Unsplash; zobrazují se z externího CDN. Odborné modelové scénáře, interní role a postupy musí před nasazením schválit odpovědní pracovníci PTC. Obsah a test vycházejí z jednoho souboru `src/course.json`.
 
 ## Spuštění u sebe
 
