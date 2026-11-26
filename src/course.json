@@ -9,31 +9,31 @@
     [
       "E-mail",
       "Než kliknete na Odeslat",
-      2,
+      4,
       "mail"
     ],
     [
       "Žádosti",
       "Komu můžete údaje předat?",
-      3,
+      4,
       "phone"
     ],
     [
       "Kamery",
       "I náhled je přístup k údajům",
-      2,
+      3,
       "camera"
     ],
     [
       "Práce s AI",
       "Co smí do AI nástroje?",
-      3,
+      5,
       "spark"
     ],
     [
       "Tahák",
       "Čtyři pravidla do praxe",
-      1,
+      2,
       "list"
     ],
     [
@@ -43,7 +43,7 @@
       "award"
     ]
   ],
-  "intro": "Přijde e-mail s přílohou, zazvoní telefon nebo potřebujete rychle upravit text pomocí AI. V každé z těchto situací se rozhoduje o tom, kdo se dostane k údajům pacientů. Za 15 minut si vyzkoušíte, jak postupovat.",
+  "intro": "Přijde e-mail s přílohou, zazvoní telefon nebo potřebujete rychle upravit text pomocí AI. V každé z těchto situací se rozhoduje o tom, kdo se dostane k údajům pacientů. V kurzu si projdete příklady z praxe a vyzkoušíte, jak správně postupovat.",
   "mail": [
     "Jméno a e-mail jsou osobní údaje. Diagnóza nebo lékařská zpráva obsahuje údaje o zdraví, které mají zvláštní ochranu. Sdílejte jen to, co příjemce pro daný účel potřebuje, a použijte schválený kanál.",
     [
