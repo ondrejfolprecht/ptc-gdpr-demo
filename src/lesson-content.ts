@@ -19,7 +19,7 @@ export const lessons = {
       ['Žádost o výmaz předejte k posouzení', 'Právo na výmaz má výjimky. U zdravotnické dokumentace může platit zákonná povinnost uchování. Zaměstnanec předá žádost odpovědné osobě.'],
     ],
     example: 'Pokud se příbuzný telefonicky ptá na zdravotní stav pacienta, použijte interní postup pro ověření totožnosti a oprávnění, než sdělíte jakýkoli údaj.',
-    task: 'Projděte třemi krátkými situacemi. V každé vyberte, jak byste postupovali, a přečtěte si zpětnou vazbu.',
+    task: 'Přiřaďte tři modelové žádosti ke správným interním postupům. Kartičky můžete přetahovat nebo vybírat kliknutím.',
   },
   3: {
     title: 'Kamerové záznamy',
@@ -40,11 +40,11 @@ export const lessons = {
       ['Výstup ověřte před použitím', 'AI může vytvořit přesvědčivý, ale chybný text. U obecného návrhu stačí fiktivní příklad. Za kontrolu výstupu odpovídá člověk.'],
     ],
     example: 'Pro návrh pozvánky si vymyslete modelové zadání a použijte schválený nástroj. Hotový návrh před použitím zkontrolujte.',
-    task: 'Projděte krátký animovaný příběh nebo jeho textovou verzi. V prostředním kroku rozhodnete, jak připravit šablonu pro pacienta.',
+    task: 'Projděte animovaný příběh o AI a poté roztřiďte čtyři ukázky podle toho, zda mohou obsahovat osobní údaje.',
   },
   5: {
     title: 'Shrnutí před testem',
-    task: 'Vyzkoušejte si poslední situaci nanečisto. Po odpovědi můžete přejít k závěrečnému testu.',
+    task: 'Doplňte tři důležitá slova do základních pravidel GDPR. Pak přejděte k závěrečnému testu.',
   },
 } satisfies Record<number, { title: string; task: string; learn?: string; rules?: string[][]; example?: string }>
 
