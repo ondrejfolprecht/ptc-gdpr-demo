@@ -111,7 +111,7 @@
       "Záznam se neposílá interním chatem. Je nutné dodržet evidenci žádosti a schvalování přístupu či předání."
     ]
   },
-  "aiIntro": "AI může usnadnit administrativu i odbornou práci, ale její výsledky je nutné kontrolovat. Používejte pouze nástroje schválené pro daný účel. Pokud chcete začít používat nový AI nástroj, obraťte se na DPO nebo metodika AI. Do neschválených služeb nevkládejte údaje pacientů.",
+  "aiIntro": "AI může usnadnit administrativu i odbornou práci, ale její výsledky je nutné kontrolovat. Používejte pouze nástroje schválené pro daný účel. Pokud chcete začít používat nový AI nástroj, obraťte se na pověřence pro ochranu osobních údajů. Do neschválených služeb nevkládejte údaje pacientů.",
   "aiScenes": [
     [
       "Připravujete dopis pro pacienta",
@@ -146,7 +146,7 @@
   "aiTable": [
     [
       "Neschválený AI nástroj a údaje pacienta",
-      "Pacientské údaje do takového nástroje nevkládejte. Nejprve požádejte DPO nebo metodika AI o posouzení."
+      "Pacientské údaje do takového nástroje nevkládejte. Nejprve požádejte pověřence pro ochranu osobních údajů o posouzení."
     ],
     [
       "Skutečné údaje bez jména pacienta",
@@ -162,7 +162,7 @@
     ],
     [
       "Nový AI nástroj nebo klinické použití",
-      "Obraťte se na DPO nebo metodika AI. Před použitím je potřeba prověřit bezpečnost, práci s daty a případné další právní požadavky."
+      "Obraťte se na pověřence pro ochranu osobních údajů. Před použitím je potřeba prověřit bezpečnost, práci s daty a případné další právní požadavky."
     ]
   ],
   "study": {
