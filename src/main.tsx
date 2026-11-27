@@ -242,10 +242,10 @@ function App() {
               {chapter === 4 && <>
                 <h2>Co udělat v konkrétní situaci</h2>
                 <table><thead><tr><th scope="col">Zadání</th><th scope="col">Jak postupovat</th></tr></thead><tbody>{course.aiTable.map(([s, action]) => <tr key={s}><th scope="row">{s}</th><td>{action}</td></tr>)}</tbody></table>
-                <div className="study"><h2>Jak rozšířená je AI ve zdravotnictví?</h2>
-                  <p><strong>{course.study.value.toLocaleString('cs-CZ')} %</strong> {course.study.label}</p>
-                  <div className="chart-track" aria-hidden="true"><span style={{ width: course.study.value + '%' }} /></div><div className="chart-scale" aria-hidden="true"><span>0 %</span><span>50 %</span><span>100 %</span></div>
-                  <details><summary>O průzkumu</summary><p>{course.study.detail}</p><a href={course.study.url} target="_blank" rel="noreferrer">Ministerstvo zdravotnictví ČR <Icon name="external" size={15} /></a></details>
+                <div className="study">
+                  <h2>Kde se AI ve zdravotnictví používá?</h2>
+                  <p>Prezentace PTC uvádí využití v radiologii, plánování radioterapie, administrativě, analýze dokumentace a při podpoře klinického rozhodování. Možnosti AI se rozšiřují, vždy ale záleží na posouzení konkrétního nástroje, jeho účelu a lidském dohledu.</p>
+                  <p><strong>Důležité:</strong> AI je pomůcka, ne náhrada lékaře či odpovědného zaměstnance.</p>
                 </div>
               </>}
             </div>}
