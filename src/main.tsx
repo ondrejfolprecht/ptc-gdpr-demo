@@ -226,6 +226,21 @@ function App() {
                   <div className="theory-example-action"><strong>Jak postupovat</strong><p>{example.action}</p></div>
                   <p className="theory-takeaway"><Icon name="check" size={17}/>{example.takeaway}</p>
                 </article>)}</div>
+                <section className="real-incident" aria-labelledby={"real-incident-title-" + chapter}>
+                  <div className="real-incident-top">
+                    <span className="real-incident-tag"><Icon name="alert" size={16}/> Skutečný případ</span>
+                    <span className="real-incident-place">{theoryExtra.realCase.location} · {theoryExtra.realCase.year}</span>
+                  </div>
+                  <h2 id={"real-incident-title-" + chapter}>{theoryExtra.realCase.name}</h2>
+                  <div className="real-incident-grid">
+                    <div><h3>Co se stalo</h3><p>{theoryExtra.realCase.mistake}</p></div>
+                    <div><h3>Jaký byl následek</h3><p>{theoryExtra.realCase.consequence}</p></div>
+                  </div>
+                  <div className="real-incident-takeaway"><strong>Co si z toho odnést</strong><p>{theoryExtra.realCase.takeaway}</p></div>
+                  <a className="real-incident-source" href={theoryExtra.realCase.sourceUrl} target="_blank" rel="noopener noreferrer">
+                    Zdroj: {theoryExtra.realCase.sourceName} <Icon name="external" size={15}/>
+                  </a>
+                </section>
                 <div className="theory-pitfall"><Icon name="alert" size={21}/><div><h3>Častý omyl</h3><p>{theoryExtra.mistake}</p></div></div>
                 <section className="theory-checklist"><div><span className="theory-overline">PŘED PROCVIČENÍM</span><h2>Rychlý checklist</h2><p>Před podobnou situací si projděte následující otázky.</p></div>
                   <ul>{theoryExtra.checklist.map(item => <li key={item}><Icon name="check" size={17}/><span>{item}</span></li>)}</ul>
