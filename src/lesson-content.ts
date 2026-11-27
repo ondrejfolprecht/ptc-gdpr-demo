@@ -23,13 +23,13 @@ export const lessons = {
   },
   3: {
     title: "Kamerový systém a přístup k záznamům",
-    learn: "Dozvíte se, proč je potřeba vyplnit žádost i při pouhém nahlédnutí do kamerového záznamu a kdo v PTC schvaluje jeho vydání.",
+    learn: "Dozvíte se, proč i krátké nahlédnutí do kamerového záznamu vyžaduje oprávnění a jak bezpečně reagovat na žádost o přístup.",
     rules: [
       ["Právní důvod a účel", "Kamerové záznamy, na kterých lze poznat konkrétní osoby, obsahují osobní údaje. K jejich pořízení a zpřístupnění musí existovat oprávněný důvod."],
-      ["Formulář i při pouhém nahlédnutí", "Pokud potřebujete do záznamu nahlédnout nebo získat jeho kopii, vyplňte formulář žádosti na SharePointu (SHP)."],
-      ["Schvalování a komunikace", "U externích žádostí, například od Policie ČR, vyplňuje formulář technický úsek. Vydání záznamu schvalují jednatelé. Informace o kamerovém systému poskytují pouze pověřené osoby."],
+      ["Oprávnění i pro pouhé nahlédnutí", "Pro nahlédnutí i vydání kopie je nutné ověřit důvod žádosti a oprávnění žadatele. Bez stanoveného postupu záznam nezpřístupňujte."],
+      ["Předání a komunikace", "Žádosti externích subjektů musí projít ověřením. O vydání záznamu i poskytování informací o kamerovém systému rozhodují určené oprávněné osoby."],
     ],
-    example: "Kolega chce po incidentu na chvíli vidět kamerový záznam. I pro krátké nahlédnutí je potřeba vyplnit žádost na SHP a ověřit oprávnění k přístupu.",
+    example: "Kolega chce po incidentu na chvíli vidět kamerový záznam. Ani krátký náhled mu bez ověření oprávnění a stanoveného postupu nezpřístupňujte.",
     task: "Přečtěte si situaci s kamerovým záznamem a vyberte správný postup.",
   },
   4: {
