@@ -20,19 +20,21 @@ Otevři adresu z terminálu. Produkční sestavení vytvoříš pomocí `npm run
 3. V **Actions** otevři **Nasazení GDPR dema** a na hlavní větvi zvol **Run workflow**.
 4. Další změny ve větvi `main` spustí nové nasazení automaticky. Hotovou adresu najdeš u úlohy **deploy** nebo v **Settings → Pages**. Workflow nastaví cestu podle konfigurace GitHub Pages.
 
-Projekt používá fiktivní situace. Pokud budeš vyměňovat ilustrace nebo texty pro veřejný web, použij schválená veřejná média a modelové údaje. Odpovědi, postup i skóre zůstávají v aktuálním prohlížeči. Tlačítko **Smazat postup** je odstraní.
+Projekt používá fiktivní situace. Veřejné demo obsahuje pouze obecné zásady přístupu ke kamerovým záznamům. Konkrétní interní postupy, schvalovací role, formuláře a kontakty PTC budou doplněny až do ostré interní verze v Moodle. Pokud budeš vyměňovat ilustrace nebo texty pro veřejný web, použij schválená veřejná média a modelové údaje. Odpovědi, postup i skóre zůstávají v aktuálním prohlížeči. Tlačítko **Smazat postup** je odstraní.
 
 ## Média a přenos do Moodlu
 
 V AI lekci je tříkroková animace s volbou a rovnocenná textová verze. Po dodání českého videa lze stejný scénář přenést do **H5P Interactive Video**. E-mailové procvičení tvoří dvě krátké otázky s okamžitou zpětnou vazbou (v Moodle například **Quiz** nebo **H5P Single Choice Set**); přiřazování žádostí odpovídá **H5P Drag and Drop** a kamerový případ lze přenést do aktivity **Lesson**. Hotové interakce tohoto prototypu se v Moodlu znovu sestaví.
 
-Pro test použij **Banka úloh → Import → Moodle XML** a soubor `moodle/gdpr-otazky.xml`. Otázky vlož do Moodle Quiz. Navržené hodnocení je 8 bodů, hranice úspěchu 6 bodů, nejvyšší známka z opakovaných pokusů. Podmínku úspěšné známky a dokončení nastav přímo v kurzu. Vystavení skutečného potvrzení vyžaduje interní konfiguraci Moodlu. Po úpravě otázek obnovíš importní soubor příkazem `npm run moodle:xml`.
+Pro test použij **Banka úloh → Import → Moodle XML** a soubor `moodle/gdpr-otazky.xml`. Otázky vlož do Moodle Quiz. Navržené hodnocení je 8 bodů, hranice úspěchu 6 bodů, nejvyšší známka z opakovaných pokusů. Po neúspěšném pokusu veřejné demo zobrazí pouze skóre a možnost opakování; přehled správných odpovědí s vysvětlením zobrazí jen po úspěšném pokusu. Při nasazení do Moodle je nutné samostatně ověřit nastavení přezkumu pokusů a zobrazování správných odpovědí. V čistě klientském demu jsou správné odpovědi technicky obsažené v JavaScriptu, nejde proto o zabezpečenou zkoušku. Podmínku úspěšné známky a dokončení nastav přímo v kurzu. Vystavení skutečného potvrzení vyžaduje interní konfiguraci Moodlu. Po úpravě otázek obnovíš importní soubor příkazem `npm run moodle:xml`.
 
 ## Revize podle školení PTC 2025–2026
 
 Teoretické části byly aktualizovány podle interní prezentace **GDPR a AI v PTC 2025–2026**. Nově zdůrazňují transparentnost e-mailů a podpisové vzory, žádosti pacientů a institucí včetně práva na výmaz, pravidla žádostí o kamerový záznam (včetně pouhého náhledu) a bezpečné používání AI s pověřencem pro ochranu osobních údajů. Modelové situace zůstávají fiktivní.
 
 **Před ostrým školením je nutná věcná kontrola pověřence pro ochranu osobních údajů a odpovědného útvaru.** Zejména ověřte aktuálnost interního schvalování kamerových záznamů. Stoletá lhůta byla ověřena ve vyhlášce č. 444/2024 Sb. (příloha č. 3, bod 11), vztahuje se na vybrané záznamy o léčebném či paliativním lékařském ozáření, ozařovací protokoly a plány v radiační onkologii, nikoli automaticky na veškerou dokumentaci pacienta. Ověřte také aktuální pravidla a schválené nástroje AI. Veřejné demo úmyslně neobsahuje fyzické rozmístění, počet ani plánované změny kamer PTC.
+
+**Poznámka k dřívějším verzím:** Samotná úprava aktuálního veřejného souboru neodstraní interní detaily z historie starších commitů ve veřejném GitHub repozitáři. Pro úplné odstranění z historie je nutná samostatná migrace do čistého repozitáře nebo přepis historie s kontrolou cache a forků.
 
 ## Skutečné případy v teoretických lekcích
 
