@@ -27,3 +27,9 @@ Projekt používá fiktivní situace. Pokud budeš vyměňovat ilustrace nebo te
 V AI lekci je tříkroková animace s volbou a rovnocenná textová verze. Po dodání českého videa lze stejný scénář přenést do **H5P Interactive Video**. Klikací e-mail odpovídá **H5P Image Hotspots**, žádosti a kamerový případ aktivitě **Lesson**. Hotové interakce tohoto prototypu se v Moodlu znovu sestaví.
 
 Pro test použij **Banka úloh → Import → Moodle XML** a soubor `moodle/gdpr-otazky.xml`. Otázky vlož do Moodle Quiz. Navržené hodnocení je 5 bodů, hranice úspěchu 4 body, nejvyšší známka z opakovaných pokusů. Podmínku úspěšné známky a dokončení nastav přímo v kurzu. Vystavení skutečného potvrzení vyžaduje interní konfiguraci Moodlu. Po úpravě otázek obnovíš importní soubor příkazem `npm run moodle:xml`.
+
+## Revize podle školení PTC 2025–2026
+
+Teoretické části byly aktualizovány podle interní prezentace **GDPR a AI v PTC 2025–2026**. Nově zdůrazňují transparentnost e-mailů a podpisové vzory, žádosti pacientů a institucí včetně práva na výmaz, pravidla žádostí o kamerový záznam (včetně pouhého náhledu) a bezpečné používání AI s DPO/metodikem AI. Modelové situace zůstávají fiktivní.
+
+**Před ostrým školením je nutná věcná kontrola DPO a odpovědného útvaru.** Zejména ověřte aktuálnost interního schvalování kamerových záznamů a tvrzení ze školení o archivační době zdravotnické dokumentace po protonové radioterapii (v prezentaci uvedeno 100 let); toto číslo není v demu uváděno jako potvrzené obecné právní pravidlo. Ověřte také aktuální pravidla a schválené nástroje AI. Veřejné demo úmyslně neobsahuje fyzické rozmístění, počet ani plánované změny kamer PTC.
