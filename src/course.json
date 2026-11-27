@@ -15,31 +15,31 @@
     [
       "Žádosti",
       "Komu můžete údaje předat?",
-      5,
+      6,
       "phone"
     ],
     [
       "Kamery",
       "I náhled je přístup k údajům",
-      4,
+      5,
       "camera"
     ],
     [
       "Práce s AI",
       "Co smí do AI nástroje?",
-      6,
+      8,
       "spark"
     ],
     [
       "Tahák",
       "Čtyři pravidla do praxe",
-      2,
+      3,
       "list"
     ],
     [
       "Test",
       "Závěrečný test",
-      3,
+      5,
       "award"
     ]
   ],
@@ -253,9 +253,45 @@
       "key": 2,
       "feedback": "Odstranění jména samo nezaručuje anonymitu.",
       "chapter": 4
+    },
+    {
+      "id": 6,
+      "prompt": "Co má obsahovat správně napsaný e-mail pacientovi?",
+      "choices": [
+        "Srozumitelný předmět odpovídající obsahu zprávy a identifikaci odesílatele.",
+        "Zavádějící předmět, aby pacient zprávu určitě otevřel.",
+        "Co nejvíce údajů o pacientovi přímo v předmětu zprávy."
+      ],
+      "key": 0,
+      "feedback": "Pacient musí poznat, kdo mu píše a proč. V předmětu zároveň neuvádějte zbytečné zdravotní údaje.",
+      "chapter": 1
+    },
+    {
+      "id": 7,
+      "prompt": "Za co odpovídá vedoucí pracovník při ochraně osobních údajů?",
+      "choices": [
+        "Ochranu údajů řeší výhradně pověřenec, vedoucí za tým neodpovídá.",
+        "Má zajistit, aby jeho tým znal používané údaje, postupy při žádostech a hlášení incidentů.",
+        "Stačí, když sám podepíše prohlášení o mlčenlivosti."
+      ],
+      "key": 1,
+      "feedback": "Vedoucí musí zajistit, aby zaměstnanci věděli, s jakými údaji pracují a jak správně postupovat.",
+      "chapter": 5
+    },
+    {
+      "id": 8,
+      "prompt": "Chcete v PTC začít používat nový cloudový AI nástroj. Jaký je správný postup?",
+      "choices": [
+        "Vyzkoušet ho na skutečných pacientských údajích a teprve potom řešit schválení.",
+        "Použít ho bez posouzení, pokud má dodavatel hezký web a nástroj funguje.",
+        "Před použitím se obrátit na pověřence pro ochranu osobních údajů a zajistit posouzení účelu, bezpečnosti a práce s daty."
+      ],
+      "key": 2,
+      "feedback": "U nového nástroje je třeba prověřit účel, práci s údaji, možné předávání dat a příslušné bezpečnostní požadavky.",
+      "chapter": 4
     }
   ],
-  "pass": 4,
+  "pass": 6,
   "mailQuestion": {
     "title": "Posíláte pacientovi e-mail s informacemi o léčbě. Co před odesláním zkontrolujete?",
     "choices": [
