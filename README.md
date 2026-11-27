@@ -36,11 +36,11 @@ Teoretické části byly aktualizovány podle interní prezentace **GDPR a AI v 
 
 ## Skutečné případy v teoretických lekcích
 
-Každá ze čtyř teorií obsahuje vizuálně odlišený blok **Skutečný případ** s doloženou chybou, následkem a přímým odkazem na zdroj. Údaje vycházejí z veřejných materiálů dozorových úřadů:
+Každá ze čtyř teorií obsahuje vizuálně odlišený blok **Skutečný případ** s doloženou chybou, následkem a přímým odkazem na zdroj. Údaje vycházejí z veřejných rozhodnutí soudů, dozorových úřadů a z ověřeného odborného zpravodajství:
 
 - E-mail: klinika 56 Dean Street (2015), tisková zpráva britského ICO převzatá portálem wired-gov.net.
 - Žádosti o údaje: Staines Health Group (2026), oficiální sdělení ICO.
-- Kamerové záznamy: Biržai Hospital (2026), litevský úřad VDAI.
-- Práce s AI: Royal Free London a DeepMind (2015 až 2017), ICO.
+- Kamerové záznamy: North Central Regional Health Authority (Trinidad a Tobago), neoprávněné sdílení videa pacienta vrchní sestrou v roce 2017 a soudní potvrzení následného disciplinárního opatření v roce 2025. Zdroj: High Court of Trinidad and Tobago, CV2023-03073. Jedná se o video z oddělení, nikoli o záznam pevného kamerového systému.
+- Práce s AI: Johns Hopkins Bayview Medical Center (2026), zaměstnanec nahrál údaje 3 182 pacientů do neschválené AI služby. Zdroj: Healthcare IT News (HIMSS), 29. 10. 2026.
 
 Pro všechny konzultace v kurzu používáme jednotný název **pověřenec pro ochranu osobních údajů**. Doložené zahraniční případy jsou vzdělávací ilustrace. Jejich právní předpisy a sankce nelze automaticky vztahovat na české prostředí.
