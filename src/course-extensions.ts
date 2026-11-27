@@ -26,7 +26,7 @@ export const extraTopics: Record<number, ExtraTopic[]> = {
     points: [
       { title: "Jasný účel a přiměřený rozsah", text: "Před pořízením záznamu musí být zřejmé, proč je sledování potřebné. V citlivých prostorech, například tam, kde se pacient převléká nebo podstupuje vyšetření, je zásah do soukromí obzvlášť závažný." },
       { title: "Informování lidí", text: "Pacienti, návštěvníci a zaměstnanci musí být vhodně informováni o monitorovaných prostorách. Označení prostoru samo o sobě neznamená, že je možné záznam využít k libovolnému účelu." },
-      { title: "Přístup jen podle potřeby", text: "Se záznamem pracují pouze oprávněné osoby. V PTC se žádost o nahlédnutí i o vydání kopie vyřizuje přes formulář na SharePointu." }
+      { title: "Přístup jen podle potřeby", text: "Se záznamy pracují pouze oprávněné osoby. Každé nahlédnutí i předání kopie musí mít odpovídající důvod a proběhnout stanoveným postupem." }
     ]
   }],
   4: [{
