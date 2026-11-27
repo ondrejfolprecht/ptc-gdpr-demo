@@ -325,3 +325,10 @@ dialog::backdrop{background:#17324677}
 .ai-adoption strong{display:block;color:#0c5d79;font-size:.9rem;margin-bottom:5px}
 .ai-adoption p{font-size:.86rem;line-height:1.55;color:#3f5d69}
 .ai-adoption .lesson-extension-source{margin-top:9px}
+
+
+/* Public demo: internal procedures are available only in the employee Moodle course. */
+.public-demo-note{display:flex;align-items:flex-start;gap:9px;margin:15px 0 20px;padding:12px 14px;border:1px solid #cbdce8;border-radius:10px;background:#f2f7fb;color:#365366;font-size:.83rem;line-height:1.55}
+.public-demo-note svg{flex:none;margin-top:2px;color:#36718b}
+.test-retry-note{display:flex;align-items:flex-start;gap:10px;margin:18px 0 4px;padding:15px 17px;border:1px solid #ead5aa;border-radius:11px;background:#fff8ea;color:#624e29;font-size:.91rem;line-height:1.6}
+.test-retry-note svg{flex:none;margin-top:3px;color:#977443}
