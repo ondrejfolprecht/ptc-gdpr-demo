@@ -4,11 +4,11 @@ export const lessons = {
     learn: "Naučíte se chránit zdravotní údaje v e-mailech a zároveň komunikovat transparentně: s pravdivým předmětem, jasně identifikovaným odesílatelem a správným podpisem.",
     rules: [
       ["Co je důvěrné", "Jméno a kontaktní údaje jsou osobní údaje. Diagnózy a lékařské zprávy obsahují údaje o zdraví, které požívají zvláštní ochrany. Sdílejte jen údaje potřebné pro konkrétní účel."],
-      ["Transparentní e-mail", "Předmět musí pravdivě odpovídat obsahu, účel zprávy má být zřejmý a odesílatel identifikovatelný. Školení PTC upozorňuje i na auditní kontrolu podpisových vzorů."],
+      ["Transparentní e-mail", "Předmět musí pravdivě odpovídat obsahu, účel zprávy má být zřejmý a odesílatel identifikovatelný. Při komunikaci používejte platný podpisový vzor PTC."],
       ["Před odesláním a při chybě", "Ověřte celou adresu a oprávnění příjemce, obsah přílohy i schválený kanál. Chybné odeslání či jiné podezření na incident bez odkladu oznamte podle interních pravidel."],
     ],
-    example: "Při komunikaci s pacientem nepřebírejte automaticky zavádějící předmět typu „Re: informace o účtu“. Vraťte se k skutečnému účelu zprávy, upravte předmět, ověřte příjemce a podpis.",
-    task: "Nejdřív v modelovém e-mailu zkontrolujte příjemce, předmět i přílohu. Potom rozhodněte, co udělat, pokud zpráva odešla nesprávné osobě.",
+    example: "Při komunikaci s pacientem nepřebírejte automaticky zavádějící předmět typu „Re: informace o účtu“. Vraťte se ke skutečnému účelu zprávy, upravte předmět, ověřte příjemce a podpis.",
+    task: "Odpovězte na dvě krátké otázky: co zkontrolovat před odesláním e-mailu a jak postupovat, pokud zpráva odešla nesprávnému příjemci.",
   },
   2: {
     title: "Žádosti o údaje a právo na výmaz",
@@ -26,8 +26,8 @@ export const lessons = {
     learn: "Zjistíte, proč i krátký náhled do kamerového záznamu vyžaduje formální postup a kdo v PTC řeší externí žádosti a schvalování předání.",
     rules: [
       ["Právní důvod a účel", "Kamerový záznam identifikovatelných osob je osobním údajem. Jeho pořízení a použití musí mít oprávněný účel; nelze jej zpřístupnit jen na základě dobrého úmyslu nebo zvědavosti."],
-      ["Formulář i při pouhém nahlédnutí", "Podle interního školení PTC je pro náhled i žádost o předání kamerového záznamu potřeba vyplnit formulář na SharePointu (SHP)."],
-      ["Schvalování a komunikace", "Externí žádosti, například od policie, řeší dle školení technický úsek. Vydání záznamu vyžaduje schválení jednatelů a informace o kamerovém systému sdělují jen pověřené osoby."],
+      ["Formulář i při pouhém nahlédnutí", "Pro náhled i vydání kamerového záznamu vyplňte formulář žádosti na SharePointu (SHP)."],
+      ["Schvalování a komunikace", "U externích žádostí, například od Policie ČR, vyplňuje formulář technický úsek. Vydání záznamu vyžaduje schválení jednatelů a informace o kamerovém systému sdělují jen pověřené osoby."],
     ],
     example: "Kolega potřebuje po incidentu pouze na chvíli vidět záznam. I v takové situaci jej nesmí získat neformálně; musí být zaznamenána žádost na SHP a ověřeno oprávnění.",
     task: "Přečtěte si situaci s kamerovým záznamem a vyberte správný postup.",
