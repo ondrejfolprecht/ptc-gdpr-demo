@@ -287,3 +287,36 @@ dialog::backdrop{background:#17324677}
 .real-incident-source:hover{color:#512517}
 .real-incident-source svg{flex:none}
 @media(max-width:650px){.real-incident{padding:15px;border-left-width:4px}.real-incident-grid{grid-template-columns:1fr;gap:14px}.real-incident-place{font-size:.74rem}.real-incident h2{font-size:1.13rem}}
+
+
+/* Doplňující témata odpovídající úplnému internímu školení PTC. */
+.lesson-extension{margin:28px 0 22px;padding:22px;background:#f4f9fb;border:1px solid #cde2eb;border-radius:15px}
+.lesson-extension-head h2,.ai-context-head h2,.patient-survey-head h2{margin:7px 0 8px;font-size:1.25rem}
+.lesson-extension-head p,.ai-context-head p,.patient-survey-head p{color:#496371;font-size:.91rem;line-height:1.6}
+.lesson-extension-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:18px}
+.lesson-extension-grid article{padding:14px 15px;border:1px solid #dbe8ed;border-radius:11px;background:#fff}
+.lesson-extension-grid h3{font-size:.96rem;line-height:1.35;margin:0 0 7px;color:#135a76}
+.lesson-extension-grid p{font-size:.85rem;color:#4b5c66;line-height:1.6}
+.lesson-extension-source{display:inline-flex;align-items:center;gap:7px;margin-top:15px;color:#086c87;font-size:.78rem;font-weight:650;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.lesson-extension-source svg{flex:none}
+.ai-context{margin-top:25px;padding:20px;background:#f1f7fa;border-radius:13px;border:1px solid #d9e6ee}
+.ai-use-grid{margin-top:15px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.ai-use-grid article{padding:13px 15px;background:#fff;border:1px solid #d8e6ec;border-radius:10px}
+.ai-use-grid h3{font-size:.93rem;color:#125e74;margin:0 0 6px}
+.ai-use-grid p{font-size:.84rem;color:#4b5b65;line-height:1.55}
+.patient-survey{margin-top:24px;padding:22px;border:1px solid #bcdcd7;border-radius:14px;background:#f2faf6}
+.patient-survey .theory-overline{color:#116d62}
+.patient-stats{margin:19px 0 15px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.patient-stats>div{background:#fff;padding:15px 12px;border:1px solid #cae7df;border-radius:11px;text-align:center}
+.patient-stats strong{display:block;font-size:clamp(1.3rem,3vw,2rem);font-weight:800;color:#146c5c;line-height:1.15;white-space:nowrap}
+.patient-stats p{font-size:.77rem;line-height:1.5;color:#536660;margin:8px 0 0}
+.patient-survey-summary{margin-top:14px;font-size:.87rem;line-height:1.6;color:#24594e;font-weight:600}
+.leadership-box{margin:23px 0;padding:23px;border:1px solid #c2d9e6;border-left:5px solid #1c7898;background:#eef6fa;border-radius:13px}
+.leadership-box h2{margin:7px 0 8px;font-size:1.27rem}
+.leadership-box>p{font-size:.9rem;line-height:1.6;color:#416272}
+.leadership-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin-top:16px}
+.leadership-grid article{background:#fff;border:1px solid #d1e3ec;border-radius:10px;padding:14px}
+.leadership-grid h3{font-size:.87rem;color:#105b75;margin:0 0 8px;line-height:1.4}
+.leadership-grid p{font-size:.8rem;line-height:1.56;color:#4d636d}
+@media(max-width:750px){.leadership-grid,.patient-stats{grid-template-columns:1fr}.patient-stats>div{text-align:left}.patient-stats p{margin-top:5px}.lesson-extension-grid,.ai-use-grid{grid-template-columns:1fr}}
+@media(max-width:650px){.lesson-extension,.ai-context,.patient-survey,.leadership-box{padding:15px}.leadership-box{border-left-width:4px}}
