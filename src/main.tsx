@@ -53,6 +53,7 @@ function App() {
   const theoryExtra = theoryExtras[chapter]
   const allAnswers = progress.answers.every(answer => answer !== null)
   const result = score(progress.answers)
+  const currentAttemptPassed = progress.submitted && result >= course.pass
   const activeQuestion = course.questions[quizIndex]
 
   useEffect(() => { saveProgress(progress) }, [progress])
@@ -203,6 +204,7 @@ function App() {
             </nav>}
             {theory && !practice && <div className="lesson-theory">
               <h2>Co se naučíte</h2><p className="lead">{theory.learn}</p>
+              {chapter === 3 && <p className="public-demo-note"><Icon name="info" size={16} /> Konkrétní interní postupy a kontakty PTC budou k dispozici až v ostré verzi kurzu v Moodle. Na této veřejné adrese nejsou zveřejněny.</p>}
               {theoryExtra && <div className="theory-hero">
                 <div className="theory-hero-copy">
                   <span className="theory-overline">GDPR V KAŽDODENNÍ PRAXI</span>
@@ -332,22 +334,32 @@ function App() {
               <div className="recap-reflection"><h2>Zkuste si odpovědět</h2><ul>{recapExtras.questions.map(item => <li key={item}><Icon name="check" size={17}/>{item}</li>)}</ul><p>{recapExtras.footer}</p></div>
             </>}
             {chapter === 5 && practice && <WordGaps values={progress.recapWords} onChange={recapWords => update({ recapWords })} />}
-            {chapter === testChapter && attemptView === 'certificate' && passed && <div className="certificate-wrap">
+            {chapter === testChapter && attemptView === 'certificate' && currentAttemptPassed && <div className="certificate-wrap">
               <div className="certificate"><span className="demo">DEMO</span><Icon name="award" size={54} /><h2>Potvrzení o absolvování</h2><p>GDPR v praxi PTC</p><strong>Ukázkový účastník</strong><p>Nejlepší výsledek {progress.best} z {course.questions.length}</p><p>Ukázkový kurz Protonového centra</p></div>
               <div className="cert-actions"><button className="secondary" onClick={() => setAttemptView('quiz')}>Zpět k výsledku</button><button className="primary" onClick={() => window.print()}><Icon name="print" /> Tisk nebo uložení PDF</button></div>
             </div>}
             {chapter === testChapter && attemptView === 'quiz' && (progress.submitted ? <>
-              <div className={'result ' + (result >= course.pass ? 'success' : '')} role="status">
-                <span className="result-icon"><Icon name={result >= course.pass ? 'award' : 'list'} size={34} /></span>
-                <div><h2>{result >= course.pass ? 'Kurz úspěšně dokončen' : 'Zkuste test znovu'}</h2><p>Tento pokus <strong>{result}/{course.questions.length}</strong> · Nejlepší výsledek <strong>{progress.best}/{course.questions.length}</strong> · Pro úspěch {course.pass}/{course.questions.length}</p></div>
+              <div className={'result ' + (currentAttemptPassed ? 'success' : '')} role="status">
+                <span className="result-icon"><Icon name={currentAttemptPassed ? 'award' : 'list'} size={34} /></span>
+                <div>
+                  <h2>{currentAttemptPassed ? 'Kurz úspěšně dokončen' : 'Test zatím není splněný'}</h2>
+                  <p>Tento pokus <strong>{result}/{course.questions.length}</strong> · Pro úspěch {course.pass}/{course.questions.length}
+                    {currentAttemptPassed && <> · Nejlepší výsledek <strong>{progress.best}/{course.questions.length}</strong></>}
+                  </p>
+                </div>
               </div>
-              <div className="result-actions"><button className="secondary" onClick={retry}>Zkusit znovu</button>{passed && <button className="primary" onClick={() => setAttemptView('certificate')}>Zobrazit vzor potvrzení <Icon name="award" /></button>}</div>
-              <h2>Přehled odpovědí</h2>
-              <div className="review">{course.questions.map((q, i) => <details key={q.id}>
-                <summary><Icon name={progress.answers[i] === q.key ? 'check' : 'alert'} size={18} />{i + 1}. {q.prompt}</summary>
-                <p>Vaše odpověď: {q.choices[progress.answers[i] ?? 0]}</p><p><strong>Správná odpověď:</strong> {q.choices[q.key]}</p><p>{q.feedback}</p>
-                <button className="link-button" onClick={() => go(q.chapter)}>Zopakovat lekci</button>
-              </details>)}</div>
+              <div className="result-actions">
+                <button className="secondary" onClick={retry}>{currentAttemptPassed ? 'Zkusit další pokus' : 'Opakovat test'}</button>
+                {currentAttemptPassed && <button className="primary" onClick={() => setAttemptView('certificate')}>Zobrazit vzor potvrzení <Icon name="award" /></button>}
+              </div>
+              {currentAttemptPassed ? <>
+                <h2>Přehled odpovědí</h2>
+                <div className="review">{course.questions.map((q, i) => <details key={q.id}>
+                  <summary><Icon name={progress.answers[i] === q.key ? 'check' : 'alert'} size={18} />{i + 1}. {q.prompt}</summary>
+                  <p>Vaše odpověď: {q.choices[progress.answers[i] ?? 0]}</p><p><strong>Správná odpověď:</strong> {q.choices[q.key]}</p><p>{q.feedback}</p>
+                  <button className="link-button" onClick={() => go(q.chapter)}>Zopakovat lekci</button>
+                </details>)}</div>
+              </> : <p className="test-retry-note"><Icon name="info" size={18} /> Správné odpovědi a vysvětlení se zobrazí až po úspěšném absolvování. Můžete si zopakovat teorii a potom test zkusit znovu.</p>}
             </> : <>
               <p className="lead">Osm situací z praxe. V každé vyberte jednu odpověď. Pro úspěch potřebujete alespoň {course.pass} správných odpovědí z {course.questions.length}.</p>
               {passed && <button className="link-button" onClick={() => setAttemptView('certificate')}>Zobrazit vzor potvrzení</button>}
