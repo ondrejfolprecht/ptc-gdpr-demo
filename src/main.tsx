@@ -219,7 +219,7 @@ function App() {
                 <span className="theory-number">{String(i+1).padStart(2,'0')}</span><div><h3>{label}</h3><p>{copy}</p></div>
               </div>)}</div>
               {theoryExtra && <>
-                <div className="theory-section-intro"><h2>Příklady z praxe</h2><p>Tři situace, se kterými se můžete setkat při každodenní práci v PTC.</p></div>
+                <div className="theory-section-intro"><h2>Příklady z praxe</h2><p>Podívejte se, jak řešit tři běžné situace z praxe PTC.</p></div>
                 <div className="theory-examples">{theoryExtra.examples.map((example, i) => <article className="theory-example" key={example.title}>
                   <div className="theory-example-head"><span>PŘÍKLAD {i + 1}</span><h3>{example.title}</h3></div>
                   <p>{example.situation}</p>
@@ -227,7 +227,7 @@ function App() {
                   <p className="theory-takeaway"><Icon name="check" size={17}/>{example.takeaway}</p>
                 </article>)}</div>
                 <div className="theory-pitfall"><Icon name="alert" size={21}/><div><h3>Častý omyl</h3><p>{theoryExtra.mistake}</p></div></div>
-                <section className="theory-checklist"><div><span className="theory-overline">PŘED PROCVIČENÍM</span><h2>Rychlý checklist</h2><p>Otázky, které si stačí položit před podobnou situací v práci.</p></div>
+                <section className="theory-checklist"><div><span className="theory-overline">PŘED PROCVIČENÍM</span><h2>Rychlý checklist</h2><p>Před podobnou situací si projděte následující otázky.</p></div>
                   <ul>{theoryExtra.checklist.map(item => <li key={item}><Icon name="check" size={17}/><span>{item}</span></li>)}</ul>
                 </section>
               </>}
@@ -236,8 +236,8 @@ function App() {
                 <table><thead><tr><th scope="col">Zadání</th><th scope="col">Jak postupovat</th></tr></thead><tbody>{course.aiTable.map(([s, action]) => <tr key={s}><th scope="row">{s}</th><td>{action}</td></tr>)}</tbody></table>
                 <div className="study">
                   <h2>Kde se AI ve zdravotnictví používá?</h2>
-                  <p>AI se ve zdravotnictví využívá v radiologii, plánování radioterapie, administrativě, analýze dokumentace a při podpoře klinického rozhodování. Možnosti AI se rozšiřují, vždy ale záleží na posouzení konkrétního nástroje, jeho účelu a lidském dohledu.</p>
-                  <p><strong>Důležité:</strong> AI je pomůcka, ne náhrada lékaře či odpovědného zaměstnance.</p>
+                  <p>AI pomáhá například při vyhodnocování snímků, plánování radioterapie a administrativě. Každý nástroj je ale potřeba před použitím posoudit. Záleží na tom, jak pracuje s daty a k čemu ho chcete používat.</p>
+                  <p><strong>Důležité:</strong> Za odborná rozhodnutí i kontrolu výstupů odpovídá člověk.</p>
                 </div>
               </>}
             </div>}
