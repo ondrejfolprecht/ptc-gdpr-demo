@@ -4,6 +4,7 @@ import Icon from './Icon'
 import course from './course.json'
 import { lessons } from './lesson-content'
 import { theoryExtras, recapExtras } from './theory-content'
+import { extraTopics, aiUseCases, patientSurvey, leadership } from './course-extensions'
 import { fresh, readProgress, saveProgress, score, unlocked } from './state'
 import type { Progress } from './state'
 import { MatchBoard, WordGaps, requestCards, requestTargets, aiCards, aiTargets, recapWordKeys } from './PracticeActivities'
@@ -167,7 +168,7 @@ function App() {
               <div>
                 <h2>Úvod</h2>
                 <p className="lead">{course.intro}</p>
-                <div className="intro-meta"><span><Icon name="clock" size={17} /> Přibližně 20–25 min</span><span><Icon name="list" size={17} /> 6 lekcí a test</span></div>
+                <div className="intro-meta"><span><Icon name="clock" size={17} /> Přibližně 30–35 min</span><span><Icon name="list" size={17} /> 6 lekcí a test</span></div>
                 <button className="primary" onClick={() => done ? go(resumeChapter) : next()}>{done ? 'Pokračovat v kurzu' : 'Začít kurz'} <Icon name="next" size={18} /></button>
               </div>
               <img className="course-image" src={new URL('./reception.svg', import.meta.url).href} alt="" />
@@ -218,6 +219,13 @@ function App() {
               <div className="theory-rules">{theory.rules.map(([label, copy], i) => <div className="theory-rule-card" key={label}>
                 <span className="theory-number">{String(i+1).padStart(2,'0')}</span><div><h3>{label}</h3><p>{copy}</p></div>
               </div>)}</div>
+              {extraTopics[chapter]?.map(topic => <section className="lesson-extension" key={topic.title}>
+                <div className="lesson-extension-head"><span className="theory-overline">DALŠÍ DŮLEŽITÁ PRAVIDLA</span><h2>{topic.title}</h2><p>{topic.intro}</p></div>
+                <div className="lesson-extension-grid">{topic.points.map(point => <article key={point.title}>
+                  <h3>{point.title}</h3><p>{point.text}</p>
+                </article>)}</div>
+                {topic.source && <a href={topic.source.url} target="_blank" rel="noopener noreferrer" className="lesson-extension-source">Právní zdroj: {topic.source.name} <Icon name="external" size={14}/></a>}
+              </section>)}
               {theoryExtra && <>
                 <div className="theory-section-intro"><h2>Příklady z praxe</h2><p>Podívejte se, jak řešit tři běžné situace z praxe PTC.</p></div>
                 <div className="theory-examples">{theoryExtra.examples.map((example, i) => <article className="theory-example" key={example.title}>
@@ -254,6 +262,16 @@ function App() {
                   <p>AI pomáhá například při vyhodnocování snímků, plánování radioterapie a administrativě. Každý nástroj je ale potřeba před použitím posoudit. Záleží na tom, jak pracuje s daty a k čemu ho chcete používat.</p>
                   <p><strong>Důležité:</strong> Za odborná rozhodnutí i kontrolu výstupů odpovídá člověk.</p>
                 </div>
+                <section className="ai-context">
+                  <div className="ai-context-head"><span className="theory-overline">AI VE ZDRAVOTNICTVÍ</span><h2>Kde dnes AI pomáhá?</h2><p>Nejde jen o chatovací nástroje. AI se využívá také v diagnostice, výzkumu, plánování péče a administrativě.</p></div>
+                  <div className="ai-use-grid">{aiUseCases.map(item => <article key={item.title}><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
+                </section>
+                <section className="patient-survey">
+                  <div className="patient-survey-head"><span className="theory-overline">POHLED PACIENTŮ</span><h2>{patientSurvey.title}</h2><p>{patientSurvey.intro}</p></div>
+                  <div className="patient-stats">{patientSurvey.stats.map(stat => <div key={stat.value}><strong>{stat.value}</strong><p>{stat.label}</p></div>)}</div>
+                  <p className="patient-survey-summary">{patientSurvey.takeaway}</p>
+                  <a href={patientSurvey.source.url} target="_blank" rel="noopener noreferrer" className="lesson-extension-source">Zdroj: {patientSurvey.source.name} <Icon name="external" size={14}/></a>
+                </section>
               </>}
             </div>}
             {lesson && practice && <div className="task-intro"><h2>Co máte udělat</h2><p>{lesson.task}</p><p className="muted">Procvičení se nezapočítává do výsledku testu.</p></div>}
@@ -300,17 +318,25 @@ function App() {
               <div className="recap-intro"><h2>{recapExtras.heading}</h2><p>{recapExtras.intro}</p></div>
               <h2 className="recap-heading">Čtyři pravidla do praxe</h2>
               <div className="rules">{course.rules.map(([label, content, icon]) => <div key={label}><span className="nav-icon"><Icon name={icon} /></span><h3>{label}</h3><p>{content}</p></div>)}</div>
+              <section className="leadership-box">
+                <span className="theory-overline">PRO VEDOUCÍ PRACOVNÍKY</span>
+                <h2>{leadership.title}</h2>
+                <p>{leadership.intro}</p>
+                <div className="leadership-grid">{leadership.points.map(item => <article key={item.title}>
+                  <h3>{item.title}</h3><p>{item.text}</p>
+                </article>)}</div>
+              </section>
               <div className="recap-reflection"><h2>Zkuste si odpovědět</h2><ul>{recapExtras.questions.map(item => <li key={item}><Icon name="check" size={17}/>{item}</li>)}</ul><p>{recapExtras.footer}</p></div>
             </>}
             {chapter === 5 && practice && <WordGaps values={progress.recapWords} onChange={recapWords => update({ recapWords })} />}
             {chapter === testChapter && attemptView === 'certificate' && passed && <div className="certificate-wrap">
-              <div className="certificate"><span className="demo">DEMO</span><Icon name="award" size={54} /><h2>Potvrzení o absolvování</h2><p>GDPR v praxi PTC</p><strong>Ukázkový účastník</strong><p>Nejlepší výsledek {progress.best} z 5</p><p>Ukázkový kurz Protonového centra</p></div>
+              <div className="certificate"><span className="demo">DEMO</span><Icon name="award" size={54} /><h2>Potvrzení o absolvování</h2><p>GDPR v praxi PTC</p><strong>Ukázkový účastník</strong><p>Nejlepší výsledek {progress.best} z {course.questions.length}</p><p>Ukázkový kurz Protonového centra</p></div>
               <div className="cert-actions"><button className="secondary" onClick={() => setAttemptView('quiz')}>Zpět k výsledku</button><button className="primary" onClick={() => window.print()}><Icon name="print" /> Tisk nebo uložení PDF</button></div>
             </div>}
             {chapter === testChapter && attemptView === 'quiz' && (progress.submitted ? <>
               <div className={'result ' + (result >= course.pass ? 'success' : '')} role="status">
                 <span className="result-icon"><Icon name={result >= course.pass ? 'award' : 'list'} size={34} /></span>
-                <div><h2>{result >= course.pass ? 'Kurz úspěšně dokončen' : 'Zkuste test znovu'}</h2><p>Tento pokus <strong>{result}/5</strong> · Nejlepší výsledek <strong>{progress.best}/5</strong> · Pro úspěch {course.pass}/5</p></div>
+                <div><h2>{result >= course.pass ? 'Kurz úspěšně dokončen' : 'Zkuste test znovu'}</h2><p>Tento pokus <strong>{result}/{course.questions.length}</strong> · Nejlepší výsledek <strong>{progress.best}/{course.questions.length}</strong> · Pro úspěch {course.pass}/{course.questions.length}</p></div>
               </div>
               <div className="result-actions"><button className="secondary" onClick={retry}>Zkusit znovu</button>{passed && <button className="primary" onClick={() => setAttemptView('certificate')}>Zobrazit vzor potvrzení <Icon name="award" /></button>}</div>
               <h2>Přehled odpovědí</h2>
@@ -320,9 +346,9 @@ function App() {
                 <button className="link-button" onClick={() => go(q.chapter)}>Zopakovat lekci</button>
               </details>)}</div>
             </> : <>
-              <p className="lead">Pět situací z praxe. V každé vyberte jednu odpověď. Pro úspěch potřebujete alespoň {course.pass} správné odpovědi z 5.</p>
+              <p className="lead">Osm situací z praxe. V každé vyberte jednu odpověď. Pro úspěch potřebujete alespoň {course.pass} správných odpovědí z {course.questions.length}.</p>
               {passed && <button className="link-button" onClick={() => setAttemptView('certificate')}>Zobrazit vzor potvrzení</button>}
-              <div className="quiz-status"><span>Otázka {quizIndex + 1} z 5</span><span>Zodpovězeno {progress.answers.filter(a => a !== null).length}/5</span></div>
+              <div className="quiz-status"><span>Otázka {quizIndex + 1} z {course.questions.length}</span><span>Zodpovězeno {progress.answers.filter(a => a !== null).length}/{course.questions.length}</span></div>
               <div className="quiz-dots" aria-label="Přejít na otázku">{course.questions.map((q, i) => <button key={q.id} onClick={() => setQuizIndex(i)} aria-current={i === quizIndex ? 'step' : undefined} aria-label={'Otázka ' + (i + 1) + (progress.answers[i] !== null ? ', zodpovězeno' : '')} className={progress.answers[i] !== null ? 'answered' : ''}>{i + 1}</button>)}</div>
               <fieldset key={activeQuestion.id}>
                 <legend>{activeQuestion.prompt}</legend>
@@ -332,7 +358,7 @@ function App() {
               </fieldset>
               <div className="test-actions">
                 <button className="secondary" disabled={quizIndex === 0} onClick={() => setQuizIndex(quizIndex - 1)}>Předchozí otázka</button>
-                {quizIndex < 4 ? <button className="primary" onClick={() => setQuizIndex(quizIndex + 1)}>Další otázka <Icon name="next" size={17} /></button>
+                {quizIndex < course.questions.length - 1 ? <button className="primary" onClick={() => setQuizIndex(quizIndex + 1)}>Další otázka <Icon name="next" size={17} /></button>
                   : <button className="primary" disabled={!allAnswers} onClick={submit}>Odevzdat test <Icon name="check" size={17} /></button>}
               </div>
             </>)}
