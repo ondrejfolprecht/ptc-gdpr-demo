@@ -115,4 +115,73 @@
       <feedback format="plain_text"><text>Správně. Odstranění jména samo nezaručuje anonymitu.</text></feedback>
     </answer>
   </question>
+  <question type="multichoice">
+    <name><text>PTC GDPR 6 · E-mail</text></name>
+    <questiontext format="plain_text"><text>Co má obsahovat správně napsaný e-mail pacientovi?</text></questiontext>
+    <generalfeedback format="plain_text"><text>Pacient musí poznat, kdo mu píše a proč. V předmětu zároveň neuvádějte zbytečné zdravotní údaje.</text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="plain_text">
+      <text>Srozumitelný předmět odpovídající obsahu zprávy a identifikaci odesílatele.</text>
+      <feedback format="plain_text"><text>Správně. Pacient musí poznat, kdo mu píše a proč. V předmětu zároveň neuvádějte zbytečné zdravotní údaje.</text></feedback>
+    </answer>
+    <answer fraction="0" format="plain_text">
+      <text>Zavádějící předmět, aby pacient zprávu určitě otevřel.</text>
+      <feedback format="plain_text"><text>Pacient musí poznat, kdo mu píše a proč. V předmětu zároveň neuvádějte zbytečné zdravotní údaje.</text></feedback>
+    </answer>
+    <answer fraction="0" format="plain_text">
+      <text>Co nejvíce údajů o pacientovi přímo v předmětu zprávy.</text>
+      <feedback format="plain_text"><text>Pacient musí poznat, kdo mu píše a proč. V předmětu zároveň neuvádějte zbytečné zdravotní údaje.</text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>PTC GDPR 7 · Tahák</text></name>
+    <questiontext format="plain_text"><text>Za co odpovídá vedoucí pracovník při ochraně osobních údajů?</text></questiontext>
+    <generalfeedback format="plain_text"><text>Vedoucí musí zajistit, aby zaměstnanci věděli, s jakými údaji pracují a jak správně postupovat.</text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="0" format="plain_text">
+      <text>Ochranu údajů řeší výhradně pověřenec, vedoucí za tým neodpovídá.</text>
+      <feedback format="plain_text"><text>Vedoucí musí zajistit, aby zaměstnanci věděli, s jakými údaji pracují a jak správně postupovat.</text></feedback>
+    </answer>
+    <answer fraction="100" format="plain_text">
+      <text>Má zajistit, aby jeho tým znal používané údaje, postupy při žádostech a hlášení incidentů.</text>
+      <feedback format="plain_text"><text>Správně. Vedoucí musí zajistit, aby zaměstnanci věděli, s jakými údaji pracují a jak správně postupovat.</text></feedback>
+    </answer>
+    <answer fraction="0" format="plain_text">
+      <text>Stačí, když sám podepíše prohlášení o mlčenlivosti.</text>
+      <feedback format="plain_text"><text>Vedoucí musí zajistit, aby zaměstnanci věděli, s jakými údaji pracují a jak správně postupovat.</text></feedback>
+    </answer>
+  </question>
+  <question type="multichoice">
+    <name><text>PTC GDPR 8 · Práce s AI</text></name>
+    <questiontext format="plain_text"><text>Chcete v PTC začít používat nový cloudový AI nástroj. Jaký je správný postup?</text></questiontext>
+    <generalfeedback format="plain_text"><text>U nového nástroje je třeba prověřit účel, práci s údaji, možné předávání dat a příslušné bezpečnostní požadavky.</text></generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="0" format="plain_text">
+      <text>Vyzkoušet ho na skutečných pacientských údajích a teprve potom řešit schválení.</text>
+      <feedback format="plain_text"><text>U nového nástroje je třeba prověřit účel, práci s údaji, možné předávání dat a příslušné bezpečnostní požadavky.</text></feedback>
+    </answer>
+    <answer fraction="0" format="plain_text">
+      <text>Použít ho bez posouzení, pokud má dodavatel hezký web a nástroj funguje.</text>
+      <feedback format="plain_text"><text>U nového nástroje je třeba prověřit účel, práci s údaji, možné předávání dat a příslušné bezpečnostní požadavky.</text></feedback>
+    </answer>
+    <answer fraction="100" format="plain_text">
+      <text>Před použitím se obrátit na pověřence pro ochranu osobních údajů a zajistit posouzení účelu, bezpečnosti a práce s daty.</text>
+      <feedback format="plain_text"><text>Správně. U nového nástroje je třeba prověřit účel, práci s údaji, možné předávání dat a příslušné bezpečnostní požadavky.</text></feedback>
+    </answer>
+  </question>
 </quiz>
