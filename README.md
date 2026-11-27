@@ -30,6 +30,17 @@ Pro test použij **Banka úloh → Import → Moodle XML** a soubor `moodle/gdpr
 
 ## Revize podle školení PTC 2025–2026
 
-Teoretické části byly aktualizovány podle interní prezentace **GDPR a AI v PTC 2025–2026**. Nově zdůrazňují transparentnost e-mailů a podpisové vzory, žádosti pacientů a institucí včetně práva na výmaz, pravidla žádostí o kamerový záznam (včetně pouhého náhledu) a bezpečné používání AI s DPO/metodikem AI. Modelové situace zůstávají fiktivní.
+Teoretické části byly aktualizovány podle interní prezentace **GDPR a AI v PTC 2025–2026**. Nově zdůrazňují transparentnost e-mailů a podpisové vzory, žádosti pacientů a institucí včetně práva na výmaz, pravidla žádostí o kamerový záznam (včetně pouhého náhledu) a bezpečné používání AI s pověřencem pro ochranu osobních údajů. Modelové situace zůstávají fiktivní.
 
-**Před ostrým školením je nutná věcná kontrola DPO a odpovědného útvaru.** Zejména ověřte aktuálnost interního schvalování kamerových záznamů a tvrzení ze školení o archivační době zdravotnické dokumentace po protonové radioterapii (v prezentaci uvedeno 100 let); toto číslo není v demu uváděno jako potvrzené obecné právní pravidlo. Ověřte také aktuální pravidla a schválené nástroje AI. Veřejné demo úmyslně neobsahuje fyzické rozmístění, počet ani plánované změny kamer PTC.
+**Před ostrým školením je nutná věcná kontrola pověřence pro ochranu osobních údajů a odpovědného útvaru.** Zejména ověřte aktuálnost interního schvalování kamerových záznamů a tvrzení ze školení o archivační době zdravotnické dokumentace po protonové radioterapii (v prezentaci uvedeno 100 let); toto číslo není v demu uváděno jako potvrzené obecné právní pravidlo. Ověřte také aktuální pravidla a schválené nástroje AI. Veřejné demo úmyslně neobsahuje fyzické rozmístění, počet ani plánované změny kamer PTC.
+
+## Skutečné případy v teoretických lekcích
+
+Každá ze čtyř teorií obsahuje vizuálně odlišený blok **Skutečný případ** s doloženou chybou, následkem a přímým odkazem na zdroj. Údaje vycházejí z veřejných materiálů dozorových úřadů:
+
+- E-mail: klinika 56 Dean Street (2015), tisková zpráva britského ICO převzatá portálem wired-gov.net.
+- Žádosti o údaje: Staines Health Group (2026), oficiální sdělení ICO.
+- Kamerové záznamy: Biržai Hospital (2026), litevský úřad VDAI.
+- Práce s AI: Royal Free London a DeepMind (2015 až 2017), ICO.
+
+Pro všechny konzultace v kurzu používáme jednotný název **pověřenec pro ochranu osobních údajů**. Doložené zahraniční případy jsou vzdělávací ilustrace. Jejich právní předpisy a sankce nelze automaticky vztahovat na české prostředí.
