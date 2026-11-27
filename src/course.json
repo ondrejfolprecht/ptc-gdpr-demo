@@ -9,25 +9,25 @@
     [
       "E-mail",
       "Než kliknete na Odeslat",
-      4,
+      5,
       "mail"
     ],
     [
       "Žádosti",
       "Komu můžete údaje předat?",
-      4,
+      5,
       "phone"
     ],
     [
       "Kamery",
       "I náhled je přístup k údajům",
-      3,
+      4,
       "camera"
     ],
     [
       "Práce s AI",
       "Co smí do AI nástroje?",
-      5,
+      6,
       "spark"
     ],
     [
@@ -126,12 +126,12 @@
     ],
     "key": 1,
     "feedback": [
-      "I samotné zhlédnutí je přístup k osobním údajům. U kamer je důležitý účel i oprávnění ke konkrétnímu přístupu.",
-      "Postup platí pro náhled i vydání kopie. Oprávnění, účel a rozsah prověří pověřená osoba.",
-      "Odeslání záznamu rozšiřuje okruh osob s přístupem. Požadavek má projít schváleným postupem."
+      "Ani pouhý náhled není neformální výjimkou. Podle interního školení PTC je třeba žádost zaevidovat na SHP.",
+      "Správně. Formulář na SHP se vyplňuje i pro náhled. U externích žádostí postupuje určený útvar a vydání záznamu podléhá příslušnému schválení.",
+      "Záznam se neposílá interním chatem. Je nutné dodržet evidenci žádosti a schvalování přístupu či předání."
     ]
   },
-  "aiIntro": "Shadow AI je používání nástrojů mimo schválený rámec organizace. AI může vytvořit i přesvědčivý, ale chybný výstup. Používejte schválené nástroje pro schválený účel a výsledky kontrolujte.",
+  "aiIntro": "AI může pomáhat při administrativě i ve zdravotnictví, ale odpovědnost za výstup a rozhodnutí zůstává na člověku. Shadow AI je použití nástroje mimo schválený rámec PTC. Před novým použitím se obraťte na DPO či metodika AI a neodesílejte skutečná data pacientů do neschválených služeb.",
   "aiScenes": [
     [
       "Připravujete dopis pro pacienta",
@@ -165,16 +165,24 @@
   },
   "aiTable": [
     [
-      "Obecný návrh textu na fiktivním příkladu",
-      "Použijte nástroj schválený pro danou práci a výstup ověřte."
+      "Neschválený AI nástroj s údaji pacienta",
+      "Nevkládat osobní ani zdravotní údaje. Nejprve posoudit nástroj a účel s DPO nebo metodikem AI."
     ],
     [
-      "Skutečná zpráva s identifikátorem nahrazeným kódem",
-      "Může dál obsahovat osobní údaje. Postupujte podle schváleného procesu pro daný nástroj a typ údajů."
+      "Skutečné údaje s vymazaným jménem",
+      "Mohou zůstat osobními údaji. Pseudonymizace neznamená anonymizaci."
     ],
     [
-      "Nový nástroj nebo nový způsob použití",
-      "Ověřte interní pravidla a požádejte o posouzení před použitím."
+      "Fiktivní podklad pro obecný text",
+      "Použít jen po ověření povoleného nástroje a výsledný obsah odborně zkontrolovat."
+    ],
+    [
+      "Chybný nebo zkreslený výstup AI",
+      "Nevydávat za ověřený fakt. Zajistit lidskou kontrolu a postupovat podle interního hlášení."
+    ],
+    [
+      "Nový AI nástroj či klinické použití",
+      "Zapojit DPO/metodika AI. Dle použití posoudit bezpečnost, přenosy dat a příslušné regulatorní požadavky."
     ]
   ],
   "study": {
@@ -185,23 +193,23 @@
   },
   "rules": [
     [
-      "Před odesláním",
-      "Ověřte příjemce, rozsah údajů a způsob předání.",
+      "Při e-mailové komunikaci",
+      "Kontrolujte adresáta, přílohu, pravdivý předmět, identifikaci odesílatele a podpis.",
       "mail"
     ],
     [
       "Při žádosti o údaje",
-      "U žádosti o údaje, výmaz či kamerový záznam použijte schválený interní postup.",
+      "Ověřujte oprávnění. Žádosti pacientů, institucí a žádosti o výmaz předejte správným postupem.",
       "file"
     ],
     [
-      "Při podezření na incident",
-      "Hned použijte interní ohlašovací kanál.",
+      "U kamer a při incidentech",
+      "I náhled do záznamu se eviduje; podezření na incident hlaste bez odkladu.",
       "alert"
     ],
     [
       "Při práci s AI",
-      "Ověřte, že nástroj i účel jsou schválené, a zkontrolujte výstup.",
+      "Nový nástroj řešte s DPO/metodikem AI; chraňte data a kontrolujte výsledky.",
       "spark"
     ]
   ],
