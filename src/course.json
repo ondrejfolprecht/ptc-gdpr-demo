@@ -43,7 +43,7 @@
       "award"
     ]
   ],
-  "intro": "Přijde e-mail s přílohou, zazvoní telefon nebo potřebujete rychle upravit text pomocí AI. V každé z těchto situací se rozhoduje o tom, kdo se dostane k údajům pacientů. V kurzu si projdete příklady z praxe a vyzkoušíte, jak správně postupovat.",
+  "intro": "Při práci v PTC se setkáváte s e-maily, žádostmi o informace i digitálními nástroji. V kurzu si na běžných situacích ukážeme, jak správně chránit osobní údaje pacientů a co dělat, když nastane chyba.",
   "incident": {
     "title": "Zjistíte, že zpráva s lékařskou přílohou už odešla nesprávnému příjemci. Jaký je první krok?",
     "choices": [
@@ -111,21 +111,21 @@
       "Záznam se neposílá interním chatem. Je nutné dodržet evidenci žádosti a schvalování přístupu či předání."
     ]
   },
-  "aiIntro": "AI může pomáhat při administrativě i ve zdravotnictví, ale odpovědnost za výstup a rozhodnutí zůstává na člověku. Shadow AI je použití nástroje mimo schválený rámec PTC. Před novým použitím se obraťte na DPO či metodika AI a neodesílejte skutečná data pacientů do neschválených služeb.",
+  "aiIntro": "AI může usnadnit administrativu i odbornou práci, ale její výsledky je nutné kontrolovat. Používejte pouze nástroje schválené pro daný účel. Pokud chcete začít používat nový AI nástroj, obraťte se na DPO nebo metodika AI. Do neschválených služeb nevkládejte údaje pacientů.",
   "aiScenes": [
     [
       "Připravujete dopis pro pacienta",
-      "Představte si, že potřebujete rychle zjednodušit dopis pro pacienta. V dopise je jeho jméno, diagnóza a termín léčby. Nástroj s umělou inteligencí by práci urychlil. Jak byste postupovali?",
+      "Potřebujete zjednodušit dopis pro pacienta. Obsahuje jeho jméno, diagnózu a termín léčby. Přemýšlíte, že si pomůžete AI. Jak budete postupovat?",
       "file"
     ],
     [
       "Zastavte se před vložením textu",
-      "Vymazat jméno samo o sobě nestačí. Člověka může prozradit kombinace diagnózy, termínu a dalších údajů. Údaje nahrazené kódem mohou být stále osobními údaji.",
+      "Samotné odstranění jména nestačí. Pacienta mohou prozradit i další údaje, například vzácná diagnóza nebo termín léčby. Také text s nahrazeným jménem může obsahovat osobní údaje.",
       "lock"
     ],
     [
       "Připravte fiktivní příklad",
-      "Pro běžné návrhy si připravte obecné zadání nebo zcela fiktivní příklad a použijte nástroj schválený pro danou práci. Výsledek si vždy přečtěte a ověřte. Za jeho použití odpovídá člověk.",
+      "Pro tvorbu obecné šablony použijte fiktivní zadání a nástroj schválený pro tuto práci. Výsledný text vždy zkontrolujte, než ho použijete.",
       "check"
     ]
   ],
@@ -145,24 +145,24 @@
   },
   "aiTable": [
     [
-      "Neschválený AI nástroj s údaji pacienta",
-      "Nevkládat osobní ani zdravotní údaje. Nejprve posoudit nástroj a účel s DPO nebo metodikem AI."
+      "Neschválený AI nástroj a údaje pacienta",
+      "Pacientské údaje do takového nástroje nevkládejte. Nejprve požádejte DPO nebo metodika AI o posouzení."
     ],
     [
-      "Skutečné údaje s vymazaným jménem",
-      "Mohou zůstat osobními údaji. Pseudonymizace neznamená anonymizaci."
+      "Skutečné údaje bez jména pacienta",
+      "I bez jména může být pacient podle dalších informací rozpoznatelný. Údaje tedy nemusejí být anonymní."
     ],
     [
       "Fiktivní podklad pro obecný text",
-      "Použít jen po ověření povoleného nástroje a výsledný obsah odborně zkontrolovat."
+      "Použijte nástroj schválený pro danou práci a výsledek před použitím zkontrolujte."
     ],
     [
-      "Chybný nebo zkreslený výstup AI",
-      "Nevydávat za ověřený fakt. Zajistit lidskou kontrolu a postupovat podle interního hlášení."
+      "Chybný výstup AI",
+      "Neberte výstup jako ověřený fakt. Odborná tvrzení ověřte a chybu řešte podle pravidel PTC."
     ],
     [
-      "Nový AI nástroj či klinické použití",
-      "Zapojit DPO/metodika AI. Dle použití posoudit bezpečnost, přenosy dat a příslušné regulatorní požadavky."
+      "Nový AI nástroj nebo klinické použití",
+      "Obraťte se na DPO nebo metodika AI. Před použitím je potřeba prověřit bezpečnost, práci s daty a případné další právní požadavky."
     ]
   ],
   "study": {
@@ -174,22 +174,22 @@
   "rules": [
     [
       "Při e-mailové komunikaci",
-      "Kontrolujte adresáta, přílohu, pravdivý předmět, identifikaci odesílatele a podpis.",
+      "Před odesláním zkontrolujte příjemce, přílohu, předmět a podpis.",
       "mail"
     ],
     [
       "Při žádosti o údaje",
-      "Ověřujte oprávnění. Žádosti pacientů, institucí a žádosti o výmaz předejte správným postupem.",
+      "Ověřte, kdo o informace žádá a zda na ně má právo. Dodržujte stanovený postup.",
       "file"
     ],
     [
-      "U kamer a při incidentech",
-      "I náhled do záznamu se eviduje; podezření na incident hlaste bez odkladu.",
+      "Při práci s kamerovými záznamy",
+      "I pro pouhé nahlédnutí vyplňte žádost. Podezření na únik údajů ihned nahlaste.",
       "alert"
     ],
     [
       "Při práci s AI",
-      "Nový nástroj řešte s DPO/metodikem AI; chraňte data a kontrolujte výsledky.",
+      "Používejte schválené nástroje, chraňte údaje pacientů a kontrolujte výsledky.",
       "spark"
     ]
   ],
