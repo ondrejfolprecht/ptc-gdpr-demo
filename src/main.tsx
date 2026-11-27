@@ -32,7 +32,6 @@ function Feedback({ correct, children }: { correct: boolean; children: string })
 function App() {
   const [progress, setProgress] = useState<Progress>(readProgress)
   const [indexOpen] = useState(() => !window.matchMedia('(max-width: 650px)').matches)
-  const [hotspot, setHotspot] = useState<number | null>(null)
   const [transcript, setTranscript] = useState(false)
   const title = useRef<HTMLHeadingElement>(null)
   const resetDialog = useRef<HTMLDialogElement>(null)
@@ -49,8 +48,6 @@ function App() {
   const [name, heading, time] = course.chapters[chapter]
   const lesson = lessons[chapter as keyof typeof lessons] as typeof lessons[1] | typeof lessons[5] | undefined
   const practice = progress.phase === 'practice'
-  const allMailChecked = progress.visited.length === course.mail[1].length
-  const mailFields = course.mail[1] as string[][]
   const theory = lesson && 'learn' in lesson ? lesson : undefined
   const theoryExtra = theoryExtras[chapter]
   const allAnswers = progress.answers.every(answer => answer !== null)
@@ -92,15 +89,11 @@ function App() {
     }))
   }
 
-  const ready = [true, allMailChecked && progress.mailStep === 1 && progress.incident !== null,
+  const ready = [true, progress.emailAnswer !== null && progress.mailStep === 1 && progress.incident !== null,
     progress.requestMatches.every((value, i) => value === requestCards[i].correct),
     progress.camera !== null, progress.aiStep === course.aiScenes.length - 1 && progress.aiCategories.every((value,i) => value === aiCards[i].correct) && progress.ai !== null,
     progress.recapWords.every((value,i) => value === recapWordKeys[i])][chapter]
 
-  function visit(index: number) {
-    setHotspot(index)
-    if (!progress.visited.includes(index)) update({ visited: [...progress.visited, index] })
-  }
 
   function retry() {
     setQuizIndex(0)
@@ -226,7 +219,7 @@ function App() {
                 <span className="theory-number">{String(i+1).padStart(2,'0')}</span><div><h3>{label}</h3><p>{copy}</p></div>
               </div>)}</div>
               {theoryExtra && <>
-                <div className="theory-section-intro"><h2>Příklady z praxe</h2><p>Tři modelové situace, se kterými se můžete setkat i v běžném provozu zdravotnického zařízení.</p></div>
+                <div className="theory-section-intro"><h2>Příklady z praxe</h2><p>Tři situace, se kterými se můžete setkat při každodenní práci v PTC.</p></div>
                 <div className="theory-examples">{theoryExtra.examples.map((example, i) => <article className="theory-example" key={example.title}>
                   <div className="theory-example-head"><span>PŘÍKLAD {i + 1}</span><h3>{example.title}</h3></div>
                   <p>{example.situation}</p>
@@ -237,14 +230,13 @@ function App() {
                 <section className="theory-checklist"><div><span className="theory-overline">PŘED PROCVIČENÍM</span><h2>Rychlý checklist</h2><p>Otázky, které si stačí položit před podobnou situací v práci.</p></div>
                   <ul>{theoryExtra.checklist.map(item => <li key={item}><Icon name="check" size={17}/><span>{item}</span></li>)}</ul>
                 </section>
-                {theoryExtra.note && <p className="theory-note"><strong>Poznámka pro PTC:</strong> {theoryExtra.note}</p>}
               </>}
               {chapter === 4 && <>
                 <h2>Co udělat v konkrétní situaci</h2>
                 <table><thead><tr><th scope="col">Zadání</th><th scope="col">Jak postupovat</th></tr></thead><tbody>{course.aiTable.map(([s, action]) => <tr key={s}><th scope="row">{s}</th><td>{action}</td></tr>)}</tbody></table>
                 <div className="study">
                   <h2>Kde se AI ve zdravotnictví používá?</h2>
-                  <p>Prezentace PTC uvádí využití v radiologii, plánování radioterapie, administrativě, analýze dokumentace a při podpoře klinického rozhodování. Možnosti AI se rozšiřují, vždy ale záleží na posouzení konkrétního nástroje, jeho účelu a lidském dohledu.</p>
+                  <p>AI se ve zdravotnictví využívá v radiologii, plánování radioterapie, administrativě, analýze dokumentace a při podpoře klinického rozhodování. Možnosti AI se rozšiřují, vždy ale záleží na posouzení konkrétního nástroje, jeho účelu a lidském dohledu.</p>
                   <p><strong>Důležité:</strong> AI je pomůcka, ne náhrada lékaře či odpovědného zaměstnance.</p>
                 </div>
               </>}
@@ -252,20 +244,13 @@ function App() {
             {lesson && practice && <div className="task-intro"><h2>Co máte udělat</h2><p>{lesson.task}</p><p className="muted">Procvičení se nezapočítává do výsledku testu.</p></div>}
             {chapter === 1 && practice && <>
               {progress.mailStep === 0 ? <>
-                <h2>Krok 1 ze 2 · Zkontrolujte koncept</h2>
-                <p className="task-hint">Klikněte na každý ze tří řádků. Pod e-mailem se vždy zobrazí vysvětlení. Po třetím řádku se zpřístupní další krok.</p>
-                <div className="mail-card">
-                  <div className="mail-head"><Icon name="mail" /> Koncept e-mailu <span role="status">{progress.visited.length}/3 zkontrolováno</span></div>
-                  {mailFields.map(([label, value], i) => <button key={label} className="mail-row" onClick={() => visit(i)} aria-pressed={hotspot === i}>
-                    <span>{label}</span><strong>{value}</strong><span aria-hidden="true" className={progress.visited.includes(i) ? 'hot checked' : 'hot'}>{progress.visited.includes(i) ? <Icon name="check" size={16} /> : '+'}</span>
-                  </button>)}
-                </div>
-                {hotspot !== null && <div className="info" role="status"><strong>{mailFields[hotspot][0]}</strong><p>{mailFields[hotspot][2]}</p></div>}
-                <button className="primary inline" disabled={!allMailChecked} onClick={() => update({ mailStep: 1 })}>Další krok <Icon name="next" size={17} /></button>
+                <h2>Otázka 1 ze 2 · Bezpečný e-mail</h2>
+                <Choice data={course.mailQuestion} value={progress.emailAnswer} select={emailAnswer => update({ emailAnswer })} />
+                <button className="primary inline" disabled={progress.emailAnswer === null} onClick={() => update({ mailStep: 1 })}>Další otázka <Icon name="next" size={17} /></button>
               </> : <>
-                <h2>Krok 2 ze 2 · Reagujte na chybu</h2>
+                <h2>Otázka 2 ze 2 · Jak reagovat na chybu</h2>
                 <Choice data={course.incident} value={progress.incident} select={index => update({ incident: index })} />
-                <button className="link-button inline" onClick={() => update({ mailStep: 0 })}>Zpět ke kontrole konceptu</button>
+                <button className="link-button inline" onClick={() => update({ mailStep: 0 })}>Zpět na první otázku</button>
               </>}
             </>}
             {chapter === 2 && practice && <MatchBoard title="Přiřaďte žádost ke správnému postupu"
@@ -350,7 +335,7 @@ function App() {
     </div>
     <dialog ref={resetDialog} aria-labelledby="reset-title">
       <form method="dialog"><h2 id="reset-title">Smazat postup?</h2><p>Dokončené lekce i výsledky testu se v tomto prohlížeči vymažou.</p>
-      <div className="test-actions"><button className="secondary" value="cancel">Zrušit</button><button className="primary" value="reset" onClick={() => { setProgress(fresh()); setHotspot(null); setTranscript(false); setQuizIndex(0); setAttemptView('quiz') }}>Smazat postup</button></div></form>
+      <div className="test-actions"><button className="secondary" value="cancel">Zrušit</button><button className="primary" value="reset" onClick={() => { setProgress(fresh()); setTranscript(false); setQuizIndex(0); setAttemptView('quiz') }}>Smazat postup</button></div></form>
     </dialog>
   </>
 }
