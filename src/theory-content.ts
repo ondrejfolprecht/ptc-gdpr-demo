@@ -8,6 +8,16 @@ export type PracticeExample = {
   action: string
   takeaway: string
 }
+export type RealIncident = {
+  name: string
+  location: string
+  year: string
+  mistake: string
+  consequence: string
+  takeaway: string
+  sourceName: string
+  sourceUrl: string
+}
 export type TheoryExtra = {
   lead: string
   photo: { src: string; alt: string; credit: string; url: string }
@@ -15,6 +25,7 @@ export type TheoryExtra = {
   examples: PracticeExample[]
   mistake: string
   checklist: string[]
+  realCase: RealIncident
 }
 
 export const theoryExtras: Record<number, TheoryExtra> = {
@@ -54,6 +65,16 @@ export const theoryExtras: Record<number, TheoryExtra> = {
       "Je adresa příjemce správná a má příjemce oprávnění údaje získat? Jsou přílohy zkontrolované?",
       "Vím, komu okamžitě nahlásit chybu při odeslání?",
     ],
+    realCase: {
+      name: "Hromadný e-mail odhalil klienty kliniky",
+      location: "56 Dean Street, Londýn, Velká Británie",
+      year: "2015",
+      mistake: "Klinika odeslala hromadný e-mail uživatelům služby spojené s HIV. Adresy vložila do pole Komu místo Skrytá kopie. Příjemci tak viděli e-mailové adresy ostatních; u většiny bylo uvedeno i celé jméno.",
+      consequence: "Únik se týkal 781 e-mailových adres. Britský úřad pro ochranu údajů uložil provozovateli kliniky v roce 2016 pokutu 180 000 liber.",
+      takeaway: "U hromadných e-mailů stačí jediná chyba při zadávání adresátů, aby se citlivé informace dostaly k dalším lidem.",
+      sourceName: "ICO: London NHS trust fined for HIV newsletter data breach (9. 5. 2016)",
+      sourceUrl: "https://www.wired-gov.net/wg/news.nsf/print/London%2BNHS%2Btrust%2Bfined%2Bfor%2BHIV%2Bnewsletter%2Bdata%2Bbreach%2B09052016162000",
+    },
   },
   2: {
     lead: "O informace o pacientovi může požádat příbuzný, jiný lékař i úřad. Než údaje komukoli sdělíte, musíte ověřit, zda na ně má právo.",
@@ -91,6 +112,16 @@ export const theoryExtras: Record<number, TheoryExtra> = {
       "Musím žádost předat odpovědné osobě?",
       "Byla žádost o výmaz předána k vyřízení, aniž by kdokoli údaje svévolně mazal?",
     ],
+    realCase: {
+      name: "Ordinace předala pojišťovně příliš mnoho údajů",
+      location: "Staines Health Group, Velká Británie",
+      year: "2026",
+      mistake: "Pojišťovna požádala o pět let zdravotní historie, které měl nejprve dostat pacient ke kontrole. Ordinace ale odeslala pojišťovně přímo 23 let jeho zdravotnických záznamů.",
+      consequence: "Úřad ICO udělil ordinaci oficiální napomenutí. Případ ukázal nedostatky v pravidlech pro vyřizování žádostí a v proškolení zaměstnanců.",
+      takeaway: "Předávejte jen údaje, které jsou skutečně požadované a pro jejichž předání existuje oprávnění.",
+      sourceName: "ICO: GP surgery reprimanded after excessive medical history sent to insurer (3. 2. 2026)",
+      sourceUrl: "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2026/02/gp-surgery-reprimanded-after-excessive-medical-history-of-terminally-ill-patient-sent-to-insurer/",
+    },
   },
   3: {
     lead: "Kamerové záznamy mohou pomoci při řešení bezpečnostních událostí. Protože na nich lze poznat pacienty, návštěvníky i zaměstnance, není možné do nich nahlížet bez oprávnění.",
@@ -128,6 +159,16 @@ export const theoryExtras: Record<number, TheoryExtra> = {
       "Pokud žádá externí subjekt, řeší žádost technický úsek?",
       "Schválili jednatelé vydání záznamu?",
     ],
+    realCase: {
+      name: "Nemocnice pořizovala nepovolené kamerové záznamy",
+      location: "Nemocnice Biržai, Litva",
+      year: "2026",
+      mistake: "Kamery zabíraly mimo jiné místa, kde probíhala vyšetření pacientů, a v nemocnici se nahrával také zvuk. Úřad zjistil i nedostatky v době uchovávání záznamů a kontrole přístupu.",
+      consequence: "Litevský úřad pro ochranu osobních údajů uložil nemocnici pokutu 6 000 eur a nařídil ukončit nezákonné sledování a nahrávání zvuku.",
+      takeaway: "I kamerový systém zavedený kvůli bezpečnosti musí respektovat soukromí pacientů a jasná pravidla používání.",
+      sourceName: "Litevský úřad VDAI: Biržai Hospital fined for improper processing (19. 2. 2026)",
+      sourceUrl: "https://vdai.lrv.lt/en/news/birzai-hospital-fined-for-improper-processing-of-personal-data-Wd4/",
+    },
   },
   4: {
     lead: "Umělá inteligence pomáhá ve zdravotnictví například při vyhodnocování snímků, plánování radioterapie nebo administrativě. Za správné použití AI a kontrolu jejích výsledků ale stále odpovídá člověk.",
@@ -137,12 +178,12 @@ export const theoryExtras: Record<number, TheoryExtra> = {
       credit: 'Unsplash',
       url: 'https://unsplash.com/s/photos/artificial-intelligence',
     },
-    why: "AI může vytvářet chybné výsledky a při jejím používání může dojít k úniku nebo nevhodnému zpracování citlivých údajů. Rizikové je také používání nástrojů bez schválení PTC, kterému se říká shadow AI. Před zavedením nového nástroje se obraťte na DPO nebo metodika AI. Je potřeba ověřit, jak nástroj pracuje s daty, kdo má k údajům přístup a zda splňuje příslušné bezpečnostní požadavky. U zdravotnických AI systémů mohou platit také zvláštní regulační pravidla. Nahrazení jména kódem ještě neznamená, že údaje nelze spojit s konkrétním pacientem.",
+    why: "AI může vytvářet chybné výsledky a při jejím používání může dojít k úniku nebo nevhodnému zpracování citlivých údajů. Rizikové je také používání nástrojů bez schválení PTC, kterému se říká shadow AI. Před zavedením nového nástroje se obraťte na pověřence pro ochranu osobních údajů. Je potřeba ověřit, jak nástroj pracuje s daty, kdo má k údajům přístup a zda splňuje příslušné bezpečnostní požadavky. U zdravotnických AI systémů mohou platit také zvláštní regulační pravidla. Nahrazení jména kódem ještě neznamená, že údaje nelze spojit s konkrétním pacientem.",
     examples: [
       {
         title: "Vložení zprávy do externí AI",
         situation: "Chcete zkrátit dopis pro pacienta a zvažujete, že jeho skutečné znění vložíte do veřejného AI nástroje.",
-        action: "Skutečný dopis do neschváleného AI nástroje nevkládejte. Pokud chcete začít používat nový nástroj, požádejte DPO nebo metodika AI o posouzení.",
+        action: "Skutečný dopis do neschváleného AI nástroje nevkládejte. Pokud chcete začít používat nový nástroj, požádejte pověřence pro ochranu osobních údajů o posouzení.",
         takeaway: "Úspora času není důvodem pro odesílání pacientských údajů do neschválených služeb.",
       },
       {
@@ -161,10 +202,20 @@ export const theoryExtras: Record<number, TheoryExtra> = {
     mistake: "„Když mám AI nástroj nainstalovaný, mohu do něj vložit i údaje pacientů.“ Nejdřív ověřte, zda PTC schválilo daný nástroj pro konkrétní účel a typ údajů. To platí také pro veřejné chatboty a překladače.",
     checklist: [
       "Je tento AI nástroj v PTC schválený pro danou práci?",
-      "Bylo nové použití AI konzultováno s DPO nebo metodikem AI?",
+      "Bylo nové použití AI konzultováno s pověřencem pro ochranu osobních údajů?",
       "Nevkládám do AI nástroje údaje pacientů bez potřebného schválení?",
       "Je výstup zkontrolovaný a vím, jak nahlásit chybu?",
     ],
+    realCase: {
+      name: "Pacientská data byla sdílena bez dostatečného informování",
+      location: "Royal Free London NHS Foundation Trust, Velká Británie",
+      year: "2015–2017",
+      mistake: "Londýnská nemocnice zpřístupnila společnosti DeepMind údaje přibližně 1,6 milionu pacientů při vývoji aplikace pro rozpoznání rizika akutního poškození ledvin. Pacienti nebyli dostatečně informováni o tom, jak budou jejich údaje použity.",
+      consequence: "Britský úřad ICO v roce 2017 konstatoval nedostatečnou transparentnost při nakládání s daty. Nemocnice následně přijala závazky ke zlepšení ochrany a informování pacientů.",
+      takeaway: "Ani užitečný zdravotnický projekt není důvodem předávat pacientská data bez jasně stanoveného a transparentního postupu.",
+      sourceName: "ICO: Google DeepMind and class action lawsuit, přehled případu Royal Free",
+      sourceUrl: "https://ico.org.uk/for-the-public/ico-40/google-deepmind-and-class-action-lawsuit/",
+    },
   },
 }
 
