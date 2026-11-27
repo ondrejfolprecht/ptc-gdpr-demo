@@ -1,6 +1,6 @@
 # GDPR v praxi PTC
 
-České interaktivní demo pro Protonové centrum. Šest krátkých lekcí, závěrečný test a ukázkové potvrzení. Rozhraní je inspirované motivem Moodle Boost. Každé výukové téma má nejdřív teorii a potom procvičení. Kurz po rozšíření trvá přibližně 30–35 minut. Fotografie v teoretických částech jsou ilustrační a pocházejí z Unsplash; zobrazují se z externího CDN. Odborné modelové scénáře, interní role a postupy musí před nasazením schválit odpovědní pracovníci PTC. Otázky testu jsou v `src/course.json`; rozšířená teorie a další sekce jsou v `src/theory-content.ts`, `src/lesson-content.ts` a `src/course-extensions.ts`.
+České interaktivní demo pro Protonové centrum. Šest krátkých lekcí, závěrečný test a ukázkové potvrzení. Rozhraní je inspirované motivem Moodle Boost. Každé výukové téma má nejdřív teorii a potom procvičení. Základní průchod kurzem trvá přibližně 20–25 minut; doplňující podrobnosti si lze samostatně rozbalit. Fotografie v teoretických částech jsou ilustrační a pocházejí z Unsplash; zobrazují se z externího CDN. Odborné modelové scénáře, interní role a postupy musí před nasazením schválit odpovědní pracovníci PTC. Otázky testu jsou v `src/course.json`; rozšířená teorie a další sekce jsou v `src/theory-content.ts`, `src/lesson-content.ts` a `src/course-extensions.ts`.
 
 ## Spuštění u sebe
 
@@ -46,6 +46,10 @@ Každá ze čtyř teorií obsahuje vizuálně odlišený blok **Skutečný pří
 - Práce s AI: Johns Hopkins Bayview Medical Center (2026), zaměstnanec nahrál údaje 3 182 pacientů do neschválené AI služby. Zdroj: Healthcare IT News (HIMSS), 29. 10. 2026.
 
 Pro všechny konzultace v kurzu používáme jednotný název **pověřenec pro ochranu osobních údajů**. Doložené zahraniční případy jsou vzdělávací ilustrace. Jejich právní předpisy a sankce nelze automaticky vztahovat na české prostředí.
+
+## Stručnější podoba teoretických lekcí
+
+Každá hlavní lekce má krátký úvod, tři pravidla, dvě modelové situace, jeden doložený případ ze zdravotnictví s odkazem a tři kontrolní otázky. Opakující se bloky byly odstraněny. Doplňující témata (uchovávání dokumentace, podrobnosti o kamerách, bezpečné zavádění AI a širší kontext AI) jsou přístupná v rozbalovacích sekcích. Interaktivní aktivity a osm otázek závěrečného testu zůstaly zachovány.
 
 ## Doplněné kapitoly a zdroje
 
