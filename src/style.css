@@ -320,3 +320,8 @@ dialog::backdrop{background:#17324677}
 .leadership-grid p{font-size:.8rem;line-height:1.56;color:#4d636d}
 @media(max-width:750px){.leadership-grid,.patient-stats{grid-template-columns:1fr}.patient-stats>div{text-align:left}.patient-stats p{margin-top:5px}.lesson-extension-grid,.ai-use-grid{grid-template-columns:1fr}}
 @media(max-width:650px){.lesson-extension,.ai-context,.patient-survey,.leadership-box{padding:15px}.leadership-box{border-left-width:4px}}
+
+.ai-adoption{padding:15px 17px;margin-top:16px;background:#e6f3f8;border-radius:10px;border:1px solid #c6e1eb}
+.ai-adoption strong{display:block;color:#0c5d79;font-size:.9rem;margin-bottom:5px}
+.ai-adoption p{font-size:.86rem;line-height:1.55;color:#3f5d69}
+.ai-adoption .lesson-extension-source{margin-top:9px}
