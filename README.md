@@ -24,7 +24,7 @@ Projekt používá fiktivní situace. Pokud budeš vyměňovat ilustrace nebo te
 
 ## Média a přenos do Moodlu
 
-V AI lekci je tříkroková animace s volbou a rovnocenná textová verze. Po dodání českého videa lze stejný scénář přenést do **H5P Interactive Video**. Klikací e-mail odpovídá **H5P Image Hotspots**, žádosti a kamerový případ aktivitě **Lesson**. Hotové interakce tohoto prototypu se v Moodlu znovu sestaví.
+V AI lekci je tříkroková animace s volbou a rovnocenná textová verze. Po dodání českého videa lze stejný scénář přenést do **H5P Interactive Video**. E-mailové procvičení tvoří dvě krátké otázky s okamžitou zpětnou vazbou (v Moodle například **Quiz** nebo **H5P Single Choice Set**); přiřazování žádostí odpovídá **H5P Drag and Drop** a kamerový případ lze přenést do aktivity **Lesson**. Hotové interakce tohoto prototypu se v Moodlu znovu sestaví.
 
 Pro test použij **Banka úloh → Import → Moodle XML** a soubor `moodle/gdpr-otazky.xml`. Otázky vlož do Moodle Quiz. Navržené hodnocení je 5 bodů, hranice úspěchu 4 body, nejvyšší známka z opakovaných pokusů. Podmínku úspěšné známky a dokončení nastav přímo v kurzu. Vystavení skutečného potvrzení vyžaduje interní konfiguraci Moodlu. Po úpravě otázek obnovíš importní soubor příkazem `npm run moodle:xml`.
 
