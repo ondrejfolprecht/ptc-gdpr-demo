@@ -362,7 +362,6 @@ function App() {
               </> : <p className="test-retry-note"><Icon name="info" size={18} /> Správné odpovědi a vysvětlení se zobrazí až po úspěšném absolvování. Můžete si zopakovat teorii a potom test zkusit znovu.</p>}
             </> : <>
               <p className="lead">Osm situací z praxe. V každé vyberte jednu odpověď. Pro úspěch potřebujete alespoň {course.pass} správných odpovědí z {course.questions.length}.</p>
-              {passed && <button className="link-button" onClick={() => setAttemptView('certificate')}>Zobrazit vzor potvrzení</button>}
               <div className="quiz-status"><span>Otázka {quizIndex + 1} z {course.questions.length}</span><span>Zodpovězeno {progress.answers.filter(a => a !== null).length}/{course.questions.length}</span></div>
               <div className="quiz-dots" aria-label="Přejít na otázku">{course.questions.map((q, i) => <button key={q.id} onClick={() => setQuizIndex(i)} aria-current={i === quizIndex ? 'step' : undefined} aria-label={'Otázka ' + (i + 1) + (progress.answers[i] !== null ? ', zodpovězeno' : '')} className={progress.answers[i] !== null ? 'answered' : ''}>{i + 1}</button>)}</div>
               <fieldset key={activeQuestion.id}>
