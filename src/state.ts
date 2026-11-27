@@ -11,7 +11,7 @@ export type Progress = {
   theoryRead: number[]
   recap: number | null
   mailStep: 0 | 1
-  visited: number[]
+  emailAnswer: number | null
   incident: number | null
   requestStep: number
   requests: (number | null)[]
@@ -28,7 +28,7 @@ export type Progress = {
 
 export function fresh(): Progress {
   return {
-    chapter: 0, completed: [], phase: 'theory', theoryRead: [], recap: null, mailStep: 0, visited: [], incident: null,
+    chapter: 0, completed: [], phase: 'theory', theoryRead: [], recap: null, mailStep: 0, emailAnswer: null, incident: null,
     requestStep: 0, requests: [null, null, null], requestMatches: [null, null, null], aiCategories: [null, null, null, null], recapWords: [null, null, null], camera: null,
     aiStep: 0, ai: null, answers: course.questions.map(() => null),
     submitted: false, best: null,
@@ -62,8 +62,8 @@ export function readProgress(): Progress {
       phase: 'theory',
       theoryRead: numericSet(value.theoryRead, lessonCount - 1),
       recap: bounded(value.recap, recap.choices.length - 1),
-      mailStep: value.mailStep === 1 ? 1 : 0,
-      visited: numericSet(value.visited, course.mail[1].length - 1),
+      mailStep: value.mailStep === 1 && value.emailAnswer !== null && value.emailAnswer !== undefined ? 1 : 0,
+      emailAnswer: bounded(value.emailAnswer, course.mailQuestion.choices.length - 1),
       incident: bounded(value.incident, course.incident.choices.length - 1),
       requestStep: bounded(value.requestStep, course.requests.length - 1) ?? 0,
       requests: course.requests.map((request, index) => bounded(value.requests?.[index], request.choices.length - 1)),
@@ -79,7 +79,7 @@ export function readProgress(): Progress {
     }
     if (!unlocked(progress, progress.chapter)) progress.chapter = 0
     if (value.phase === 'practice' && progress.theoryRead.includes(progress.chapter)) progress.phase = 'practice'
-    if (progress.visited.length < course.mail[1].length) progress.mailStep = 0
+    if (progress.emailAnswer === null) progress.mailStep = 0
     return progress
   } catch {
     return fresh()
