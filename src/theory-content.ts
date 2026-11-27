@@ -51,7 +51,7 @@ export const theoryExtras: Record<number, TheoryExtra> = {
     checklist: [
       "Odpovídá předmět obsahu zprávy a neprozrazuje zbytečné zdravotní údaje?",
       "Je ze zprávy jasné, kdo ji posílá, a je podpis správný?",
-      "Je adresa příjemce správná a smí dané údaje obdržet? Zkontroloval jsem přílohy?",
+      "Je adresa příjemce správná a má příjemce oprávnění údaje získat? Jsou přílohy zkontrolované?",
       "Vím, komu okamžitě nahlásit chybu při odeslání?",
     ],
   },
@@ -89,7 +89,7 @@ export const theoryExtras: Record<number, TheoryExtra> = {
       "Vím, kdo o údaje žádá?",
       "Má žadatel právo získat právě tyto informace?",
       "Musím žádost předat odpovědné osobě?",
-      "Pokud jde o žádost o výmaz, předal jsem ji k vyřízení, aniž bych údaje sám mazal?",
+      "Byla žádost o výmaz předána k vyřízení, aniž by kdokoli údaje svévolně mazal?",
     ],
   },
   3: {
@@ -161,9 +161,9 @@ export const theoryExtras: Record<number, TheoryExtra> = {
     mistake: "„Když mám AI nástroj nainstalovaný, mohu do něj vložit i údaje pacientů.“ Nejdřív ověřte, zda PTC schválilo daný nástroj pro konkrétní účel a typ údajů. To platí také pro veřejné chatboty a překladače.",
     checklist: [
       "Je tento AI nástroj v PTC schválený pro danou práci?",
-      "Pokud jde o nové použití AI, konzultoval jsem ho s DPO nebo metodikem AI?",
+      "Bylo nové použití AI konzultováno s DPO nebo metodikem AI?",
       "Nevkládám do AI nástroje údaje pacientů bez potřebného schválení?",
-      "Zkontroloval jsem výstup a vím, jak nahlásit chybu?",
+      "Je výstup zkontrolovaný a vím, jak nahlásit chybu?",
     ],
   },
 }
@@ -177,5 +177,5 @@ export const recapExtras = {
     "Vím, komu ihned nahlásit podezření na únik údajů?",
     "Vím, s kým konzultovat nový AI nástroj nebo chybný výstup?",
   ],
-  footer: "Vedoucí pracovníci mají zajistit, aby jejich týmy věděly, s jakými údaji pracují a jak řešit žádosti či bezpečnostní incidenty. Pokud si nejste správným postupem jistí, obraťte se na odpovědnou osobu.",
+  footer: "Vedoucí pracovníci mají zajistit, aby jejich týmy věděly, s jakými údaji pracují a jak řešit žádosti či bezpečnostní incidenty. Pokud si nejste jistí, jak postupovat, obraťte se na odpovědnou osobu.",
 }
