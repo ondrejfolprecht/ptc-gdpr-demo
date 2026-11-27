@@ -48,7 +48,7 @@ export const aiUseCases = [
   { title: "Personalizovaná medicína", text: "Podpora analýzy genetických nebo histologických údajů při hledání vhodného léčebného postupu." }
 ]
 export const aiAdoption = {
-  text: "V národním průzkumu Ministerstva zdravotnictví ČR z února 2026 uvedlo 67,6 % ze 105 oslovených respondentů ze zdravotnických zařízení, že AI již používají nebo testují. Jde o podíl respondentů průzkumu, nikoli o podíl všech českých nemocnic.",
+  text: "V národním průzkumu Ministerstva zdravotnictví ČR z února 2026 uvedlo 67,6 % ze 105 respondentů ze zdravotnických zařízení, že AI již používají nebo testují. Jde o podíl respondentů průzkumu, nikoli o podíl všech českých nemocnic.",
   source: { name: "Ministerstvo zdravotnictví ČR, Národní průzkum využívání AI ve zdravotnictví (únor 2026)", url: "https://mzd.gov.cz/tiskove-centrum-mz/narodni-pruzkum-ministerstva-zdravotnictvi-umela-inteligence-se-stava-beznou-soucasti-ceskeho-zdravotnictvi/" }
 }
 export const patientSurvey = {
