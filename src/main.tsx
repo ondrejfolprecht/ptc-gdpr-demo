@@ -169,7 +169,7 @@ function App() {
               <div>
                 <h2>Úvod</h2>
                 <p className="lead">{course.intro}</p>
-                <div className="intro-meta"><span><Icon name="clock" size={17} /> Přibližně 30–35 min</span><span><Icon name="list" size={17} /> 6 lekcí a test</span></div>
+                <div className="intro-meta"><span><Icon name="clock" size={17} /> Přibližně 20–25 min</span><span><Icon name="list" size={17} /> 6 lekcí a test</span></div>
                 <button className="primary" onClick={() => done ? go(resumeChapter) : next()}>{done ? 'Pokračovat v kurzu' : 'Začít kurz'} <Icon name="next" size={18} /></button>
               </div>
               <img className="course-image" src={new URL('./reception.svg', import.meta.url).href} alt="" />
@@ -203,14 +203,12 @@ function App() {
               <button aria-current={practice ? 'step' : undefined} disabled={!progress.theoryRead.includes(chapter)} onClick={() => go(chapter, 'practice')}><Icon name="list" size={17} /> 2. Procvičení</button>
             </nav>}
             {theory && !practice && <div className="lesson-theory">
-              <h2>Co se naučíte</h2><p className="lead">{theory.learn}</p>
               {chapter === 3 && <p className="public-demo-note"><Icon name="info" size={16} /> Konkrétní interní postupy a kontakty PTC budou k dispozici až v ostré verzi kurzu v Moodle. Na této veřejné adrese nejsou zveřejněny.</p>}
               {theoryExtra && <div className="theory-hero">
                 <div className="theory-hero-copy">
                   <span className="theory-overline">GDPR V KAŽDODENNÍ PRAXI</span>
                   <h2>Proč na tom záleží</h2>
                   <p>{theoryExtra.lead}</p>
-                  <p>{theoryExtra.why}</p>
                 </div>
                 <figure className="theory-photo">
                   <img src={theoryExtra.photo.src} alt={theoryExtra.photo.alt} loading="lazy" decoding="async"/>
@@ -221,20 +219,24 @@ function App() {
               <div className="theory-rules">{theory.rules.map(([label, copy], i) => <div className="theory-rule-card" key={label}>
                 <span className="theory-number">{String(i+1).padStart(2,'0')}</span><div><h3>{label}</h3><p>{copy}</p></div>
               </div>)}</div>
-              {extraTopics[chapter]?.map(topic => <section className="lesson-extension" key={topic.title}>
-                <div className="lesson-extension-head"><span className="theory-overline">DALŠÍ DŮLEŽITÁ PRAVIDLA</span><h2>{topic.title}</h2><p>{topic.intro}</p></div>
-                <div className="lesson-extension-grid">{topic.points.map(point => <article key={point.title}>
-                  <h3>{point.title}</h3><p>{point.text}</p>
-                </article>)}</div>
-                {topic.source && <a href={topic.source.url} target="_blank" rel="noopener noreferrer" className="lesson-extension-source">Právní zdroj: {topic.source.name} <Icon name="external" size={14}/></a>}
-              </section>)}
+              {extraTopics[chapter]?.map(topic => <details className="theory-more" key={topic.title}>
+                <summary><Icon name="file" size={17}/> Více informací: {topic.title}</summary>
+                <div className="theory-more-content">
+                  <p>{topic.intro}</p>
+                  <div className="lesson-extension-grid">{topic.points.map(point => <article key={point.title}>
+                    <h3>{point.title}</h3><p>{point.text}</p>
+                  </article>)}</div>
+                  {topic.source && <a href={topic.source.url} target="_blank" rel="noopener noreferrer" className="lesson-extension-source">Právní zdroj: {topic.source.name} <Icon name="external" size={14}/></a>}
+                </div>
+              </details>)}
               {theoryExtra && <>
-                <div className="theory-section-intro"><h2>Příklady z praxe</h2><p>Podívejte se, jak řešit tři běžné situace z praxe PTC.</p></div>
-                <div className="theory-examples">{theoryExtra.examples.map((example, i) => <article className="theory-example" key={example.title}>
+                <div className="theory-section-intro"><h2>Dvě situace z praxe</h2></div>
+                <div className="theory-examples">{(chapter === 1 || chapter === 2 || chapter === 4
+                  ? [theoryExtra.examples[0], theoryExtra.examples[2]]
+                  : theoryExtra.examples.slice(0, 2)).map((example, i) => <article className="theory-example" key={example.title}>
                   <div className="theory-example-head"><span>PŘÍKLAD {i + 1}</span><h3>{example.title}</h3></div>
                   <p>{example.situation}</p>
                   <div className="theory-example-action"><strong>Jak postupovat</strong><p>{example.action}</p></div>
-                  <p className="theory-takeaway"><Icon name="check" size={17}/>{example.takeaway}</p>
                 </article>)}</div>
                 <section className="real-incident" aria-labelledby={"real-incident-title-" + chapter}>
                   <div className="real-incident-top">
@@ -251,32 +253,31 @@ function App() {
                     Zdroj: {theoryExtra.realCase.sourceName} <Icon name="external" size={15}/>
                   </a>
                 </section>
-                <div className="theory-pitfall"><Icon name="alert" size={21}/><div><h3>Častý omyl</h3><p>{theoryExtra.mistake}</p></div></div>
-                <section className="theory-checklist"><div><span className="theory-overline">PŘED PROCVIČENÍM</span><h2>Rychlý checklist</h2><p>Před podobnou situací si projděte následující otázky.</p></div>
-                  <ul>{theoryExtra.checklist.map(item => <li key={item}><Icon name="check" size={17}/><span>{item}</span></li>)}</ul>
+                <section className="theory-checklist theory-essentials">
+                  <div><span className="theory-overline">ZAPAMATUJTE SI</span><h2>Tři věci do praxe</h2></div>
+                  <ul>{theoryExtra.checklist.slice(0, 3).map(item => <li key={item}><Icon name="check" size={17}/><span>{item}</span></li>)}</ul>
                 </section>
               </>}
               {chapter === 4 && <>
-                <h2>Co udělat v konkrétní situaci</h2>
-                <table><thead><tr><th scope="col">Zadání</th><th scope="col">Jak postupovat</th></tr></thead><tbody>{course.aiTable.map(([s, action]) => <tr key={s}><th scope="row">{s}</th><td>{action}</td></tr>)}</tbody></table>
-                <div className="study">
-                  <h2>Kde se AI ve zdravotnictví používá?</h2>
-                  <p>AI pomáhá například při vyhodnocování snímků, plánování radioterapie a administrativě. Každý nástroj je ale potřeba před použitím posoudit. Záleží na tom, jak pracuje s daty a k čemu ho chcete používat.</p>
-                  <p><strong>Důležité:</strong> Za odborná rozhodnutí i kontrolu výstupů odpovídá člověk.</p>
-                </div>
-                <section className="ai-context">
-                  <div className="ai-context-head"><span className="theory-overline">AI VE ZDRAVOTNICTVÍ</span><h2>Kde dnes AI pomáhá?</h2><p>Nejde jen o chatovací nástroje. AI se využívá také v diagnostice, výzkumu, plánování péče a administrativě.</p></div>
-                  <div className="ai-use-grid">{aiUseCases.map(item => <article key={item.title}><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
-                  <div className="ai-adoption"><strong>AI už se využívá i v českém zdravotnictví</strong><p>{aiAdoption.text}</p>
-                    <a href={aiAdoption.source.url} target="_blank" rel="noopener noreferrer" className="lesson-extension-source">Zdroj: {aiAdoption.source.name} <Icon name="external" size={14}/></a>
-                  </div>
+                <section className="ai-context ai-context-condensed">
+                  <div className="ai-context-head"><span className="theory-overline">AI VE ZDRAVOTNICTVÍ</span><h2>Kde už AI pomáhá?</h2></div>
+                  <div className="ai-use-grid">{aiUseCases.slice(0, 3).map(item => <article key={item.title}><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
                 </section>
-                <section className="patient-survey">
-                  <div className="patient-survey-head"><span className="theory-overline">POHLED PACIENTŮ</span><h2>{patientSurvey.title}</h2><p>{patientSurvey.intro}</p></div>
+                <section className="patient-survey patient-survey-condensed">
+                  <div className="patient-survey-head"><span className="theory-overline">POHLED PACIENTŮ</span><h2>{patientSurvey.title}</h2></div>
                   <div className="patient-stats">{patientSurvey.stats.map(stat => <div key={stat.value}><strong>{stat.value}</strong><p>{stat.label}</p></div>)}</div>
-                  <p className="patient-survey-summary">{patientSurvey.takeaway}</p>
                   <a href={patientSurvey.source.url} target="_blank" rel="noopener noreferrer" className="lesson-extension-source">Zdroj: {patientSurvey.source.name} <Icon name="external" size={14}/></a>
                 </section>
+                <details className="theory-more">
+                  <summary><Icon name="file" size={17}/> Více informací: další využití AI a průzkum v ČR</summary>
+                  <div className="theory-more-content">
+                    <div className="ai-use-grid">{aiUseCases.slice(3).map(item => <article key={item.title}><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
+                    <p>{patientSurvey.intro} {patientSurvey.takeaway}</p>
+                    <div className="ai-adoption"><strong>Využití AI v českém zdravotnictví</strong><p>{aiAdoption.text}</p>
+                      <a href={aiAdoption.source.url} target="_blank" rel="noopener noreferrer" className="lesson-extension-source">Zdroj: {aiAdoption.source.name} <Icon name="external" size={14}/></a>
+                    </div>
+                  </div>
+                </details>
               </>}
             </div>}
             {lesson && practice && <div className="task-intro"><h2>Co máte udělat</h2><p>{lesson.task}</p><p className="muted">Procvičení se nezapočítává do výsledku testu.</p></div>}
@@ -323,15 +324,15 @@ function App() {
               <div className="recap-intro"><h2>{recapExtras.heading}</h2><p>{recapExtras.intro}</p></div>
               <h2 className="recap-heading">Čtyři pravidla do praxe</h2>
               <div className="rules">{course.rules.map(([label, content, icon]) => <div key={label}><span className="nav-icon"><Icon name={icon} /></span><h3>{label}</h3><p>{content}</p></div>)}</div>
-              <section className="leadership-box">
-                <span className="theory-overline">PRO VEDOUCÍ PRACOVNÍKY</span>
-                <h2>{leadership.title}</h2>
-                <p>{leadership.intro}</p>
-                <div className="leadership-grid">{leadership.points.map(item => <article key={item.title}>
-                  <h3>{item.title}</h3><p>{item.text}</p>
-                </article>)}</div>
-              </section>
-              <div className="recap-reflection"><h2>Zkuste si odpovědět</h2><ul>{recapExtras.questions.map(item => <li key={item}><Icon name="check" size={17}/>{item}</li>)}</ul><p>{recapExtras.footer}</p></div>
+              <details className="theory-more leadership-collapsible">
+                <summary><Icon name="file" size={17}/> Pro vedoucí pracovníky: odpovědnost za tým</summary>
+                <div className="theory-more-content"><p>{leadership.intro}</p>
+                  <div className="leadership-grid">{leadership.points.map(item => <article key={item.title}>
+                    <h3>{item.title}</h3><p>{item.text}</p>
+                  </article>)}</div>
+                </div>
+              </details>
+              <div className="recap-reflection"><h2>Před závěrečným testem</h2><ul>{recapExtras.questions.slice(0, 3).map(item => <li key={item}><Icon name="check" size={17}/>{item}</li>)}</ul></div>
             </>}
             {chapter === 5 && practice && <WordGaps values={progress.recapWords} onChange={recapWords => update({ recapWords })} />}
             {chapter === testChapter && attemptView === 'certificate' && currentAttemptPassed && <div className="certificate-wrap">
