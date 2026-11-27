@@ -1,7 +1,7 @@
 /**
- * Rozšířené vzdělávací bloky pro GDPR demo.
- * Všechny příklady jsou modelové; před interním nasazením musí být
- * interní kanály a odpovědné role potvrzené PTC / pověřencem.
+ * Upraveno podle interní prezentace „GDPR a AI v PTC 2025–2026“.
+ * Veřejné demo uvádí principy a modelové situace, nikoli přesné
+ * bezpečnostní parametry zařízení. Před ostrým nasazením nutná revize DPO.
  */
 export type PracticeExample = {
   title: string
@@ -11,179 +11,177 @@ export type PracticeExample = {
 }
 export type TheoryExtra = {
   lead: string
-  photo: {
-    src: string
-    alt: string
-    credit: string
-    url: string
-  }
+  photo: { src: string; alt: string; credit: string; url: string }
   why: string
   examples: PracticeExample[]
   mistake: string
   checklist: string[]
   note?: string
 }
+
 export const theoryExtras: Record<number, TheoryExtra> = {
   1: {
-    lead: 'Údaje o pacientovi se často předávají při běžné administrativě. Největší riziko nemusí být složitý útok, ale jedna přehlédnutá adresa, nesprávná příloha nebo zbytečně dlouhá historie e-mailu.',
+    lead: "Ochrana údajů je součástí důvěry pacientů v PTC. E-mail může obsahovat informace o zdraví, ale také může vyvolat zbytečné obavy, pokud má zavádějící předmět nebo nejasného odesílatele.",
     photo: {
       src: 'https://images.unsplash.com/photo-1758691462848-ba1e929da259?auto=format&fit=crop&w=1400&q=82',
       alt: 'Ilustrační fotografie rukou při psaní na počítačové klávesnici ve zdravotnickém prostředí',
       credit: 'Vitaly Gariev / Unsplash',
       url: 'https://unsplash.com/photos/doctor-typing-on-keyboard-with-stethoscope-nearby-FQQoUPVb_1c',
     },
-    why: 'Jméno, kontakt a datum narození jsou osobní údaje. Diagnóza, léčebný plán či lékařská zpráva obsahují informace o zdraví, kterým GDPR přiznává zvláštní ochranu. Při odesílání proto nestačí jen ověřit, že e-mail „funguje“: potřebujete vědět, kdo má údaje dostat, proč a v jakém rozsahu.',
+    why: "Pacientské údaje zpracováváme pouze pro oprávněný účel a ve vhodném rozsahu. Diagnózy, lékařské zprávy či plán léčby jsou zvlášť chráněné informace. Vedle správného adresáta a přílohy je důležitá i transparentnost: z předmětu, podpisu a odesílatele musí být zřejmé, kdo a proč píše. Interní prezentace PTC navíc upozorňuje na plánované auditní kontroly podpisových vzorů.",
     examples: [
       {
-        title: 'Našeptávač doplnil jiného příjemce',
-        situation: 'Při odesílání výsledku vyšetření se objeví dvě podobná jména. Adresa v poli Komu vypadá na první pohled správně.',
-        action: 'Před odesláním otevřete celou adresu, ověřte skutečného příjemce i jeho oprávnění a použijte schválený způsob předání.',
-        takeaway: 'Podobné jméno není ověřená totožnost.',
+        title: "Zavádějící předmět e-mailu",
+        situation: "Pacientovi posíláte informaci o změně termínu. V předmětu je automaticky převzaté „Re: informace o účtu“, které se zprávou nesouvisí.",
+        action: "Použijte pravdivý a srozumitelný předmět. Neuvádějte v něm zbytečně diagnózu ani jiné zdravotní údaje; ověřte také podpis a identitu odesílatele.",
+        takeaway: "Předmět i podpis mají odpovídat skutečnému účelu komunikace.",
       },
       {
-        title: 'Správný e-mail, nesprávná příloha',
-        situation: 'K administrativnímu e-mailu připojíte soubor ze stejné složky, ale po otevření zjistíte, že obsahuje jiného pacienta.',
-        action: 'Přílohu odeberte a zkontrolujte obsah správného souboru před odesláním. Pokud již zpráva odešla, bez odkladu ohlaste podezření na incident.',
-        takeaway: 'Kontrolujte obsah přílohy, nejen její název.',
+        title: "Dvě podobné e-mailové adresy",
+        situation: "Našeptávač nabídne dva kontakty s podobným jménem. K jednomu e-mailu je přiložena zpráva konkrétního pacienta.",
+        action: "Zkontrolujte celou adresu a oprávnění příjemce. Otevřete přílohu, ověřte správného pacienta a použijte schválený kanál.",
+        takeaway: "Ani interní adresát automaticky nepotřebuje všechna pacientská data.",
       },
       {
-        title: 'Přeposílání celého vlákna',
-        situation: 'Kolegovi chcete poslat jednu organizační informaci, ale předchozí komunikace obsahuje diagnózu a osobní údaje pacienta.',
-        action: 'Vytvořte novou stručnou zprávu nebo odstraňte nadbytečné části; sdílejte pouze informace, které příjemce skutečně potřebuje.',
-        takeaway: 'I historie zpráv může obsahovat chráněné údaje.',
+        title: "Chybná příloha už odešla",
+        situation: "Po odeslání zjistíte, že jste připojili zprávu jiného pacienta. Nevíte, zda ji příjemce otevřel.",
+        action: "Podezření na bezpečnostní incident bez odkladu nahlaste schváleným interním postupem. Nesnažte se je řešit pouze smazáním zprávy z odeslané pošty.",
+        takeaway: "Při incidentu je zásadní rychlé nahlášení a koordinovaný postup.",
       },
     ],
-    mistake: '„Posílám to kolegovi, takže je to automaticky v pořádku.“ Ani interní příjemce nemá automaticky oprávnění vidět všechny údaje. Rozhoduje pracovní potřeba, účel a schválený kanál.',
+    mistake: "„Stačí, že zpráva došla správnému člověku.“ Nestačí. Prezentace PTC zdůrazňuje také transparentní komunikaci, pravdivé údaje o odesílateli a jednotné podpisové vzory.",
     checklist: [
-      'Komu zpráva skutečně odejde a má na údaje oprávnění?',
-      'Obsahuje předmět a tělo jen nezbytné informace?',
-      'Otevřel/a jsem správnou přílohu a ověřil/a její obsah?',
-      'Používám pro tento typ údajů schválený způsob předání?',
+      "Je předmět pravdivý, jasný a bez zbytečných zdravotních údajů?",
+      "Je odesílatel identifikovatelný a podpis odpovídá pravidlům PTC?",
+      "Ověřil/a jsem oprávnění příjemce i obsah všech příloh?",
+      "Vím, jak ihned nahlásit chybné odeslání?",
     ],
-    note: 'Pokud dojde k chybnému odeslání, zaměstnanec nečeká na reakci adresáta. Podezření ihned hlásí interně podle schváleného postupu. Posouzení případného oznámení dozorovému úřadu řeší odpovědný tým.',
+    note: "Podklad: interní školení „GDPR a AI v PTC 2025–2026“, zejména část o klamavých e-mailech a kontrole podpisových vzorů. Konkrétní podobu podpisu určuje aktuální interní standard.",
   },
   2: {
-    lead: 'Žádost o zdravotní údaje může přijít telefonicky, e-mailem i osobně. Je důležité oddělit ochotu pomoci od samotného oprávnění údaje předat.',
+    lead: "Pacienti, příbuzní i instituce mají různé důvody žádat o informace. Ochota pomoci nesmí předběhnout ověření totožnosti, právního důvodu a oprávnění k předání.",
     photo: {
       src: 'https://images.unsplash.com/photo-1758691462848-31a39258dbd8?auto=format&fit=crop&w=1400&q=82',
       alt: 'Ilustrační fotografie zdravotnice telefonující při práci na notebooku',
       credit: 'Vitaly Gariev / Unsplash',
       url: 'https://unsplash.com/photos/doctor-on-phone-working-on-laptop-in-office-egCFrNJ6Djw',
     },
-    why: 'Pacientské informace nepředáváme jen podle toho, jak důvěryhodně žadatel působí. Před sdělením se ověřuje totožnost, oprávnění, právní důvod a přiměřený rozsah. Některé žádosti, například o výmaz nebo kopii zdravotnické dokumentace, musejí být formálně posouzené.',
+    why: "Podle interní prezentace PTC je potřeba zvláštní pozornost věnovat žádostem policie a soudů, dalších lékařů a zdravotnických zařízení, zdravotních pojišťoven, úřadů, zaměstnavatelů i rodinných příslušníků. Každá skupina může mít jiné oprávnění a rozsah údajů. Právo na výmaz podle čl. 17 GDPR neznamená automatický výmaz zdravotnické dokumentace, protože může platit zákonná povinnost uchování. Každá žádost se musí posoudit a odpověď řádně zdůvodnit.",
     examples: [
       {
-        title: 'Volá údajná manželka pacienta',
-        situation: 'Volající zná jméno, datum narození a ptá se na výsledek vyšetření nebo termín léčby.',
-        action: 'Výsledek ani termín zatím nesdělujte. Použijte schválený postup pro ověření totožnosti a oprávnění k informacím.',
-        takeaway: 'Znalost několika údajů sama o sobě neopravňuje k přístupu.',
+        title: "Volá příbuzný pacienta",
+        situation: "Volající zná datum narození a ptá se na výsledek vyšetření či termín protonové léčby.",
+        action: "Před sdělením údajů ověřte totožnost a oprávnění podle pravidel PTC. Bez ověření výsledek ani termín nesdělujte.",
+        takeaway: "Znalost rodinných či identifikačních údajů sama o sobě nestačí.",
       },
       {
-        title: 'E-mail označený jako žádost policie',
-        situation: 'Z neznámé adresy dorazí požadavek na kompletní lékařskou zprávu s krátkou lhůtou na odpověď.',
-        action: 'Neodpovídejte zasláním dokumentu na uvedenou adresu. Požadavek předejte pověřenému pracovníkovi k ověření oprávnění a právního podkladu.',
-        takeaway: 'Institucionální podpis v e-mailu není důkazem oprávnění.',
+        title: "Požadavek policie nebo jiného úřadu",
+        situation: "Do schránky dorazí žádost o celou dokumentaci s úředně vypadajícím podpisem.",
+        action: "Nespoléhejte na samotné označení instituce. Žádost předejte odpovědné osobě k ověření právního podkladu, identity, rozsahu a způsobu předání.",
+        takeaway: "I oficiálně působící požadavek se musí ověřit.",
       },
       {
-        title: 'Pacient požaduje úplný výmaz',
-        situation: 'Pacient žádá odstranění celé dokumentace, protože již léčbu ukončil.',
-        action: 'Žádost zaevidujte a předejte podle interního postupu. O případných výjimkách z práva na výmaz a povinnostech uchování rozhoduje odpovědná osoba.',
-        takeaway: 'Právo na výmaz není u zdravotnické dokumentace neomezené.',
+        title: "Pacient chce smazat dokumentaci",
+        situation: "Pacient po léčbě žádá okamžitý výmaz všech záznamů včetně údajů u dalších zpracovatelů.",
+        action: "Žádost zaznamenejte a předejte k posouzení. Neodstraňujte dokumentaci svévolně; odpovědná osoba posoudí zákonné lhůty uchování, případné výjimky a způsob odpovědi.",
+        takeaway: "Pokud nelze vymazat, musí být důvod srozumitelně vysvětlen.",
       },
     ],
-    mistake: '„Když je žadatel naléhavý nebo zná podrobnosti, musím mu vyhovět hned.“ Naléhavost nenahrazuje ověření. Zdvořile vysvětlete, že požadavek projde určeným postupem.',
+    mistake: "„Právo být zapomenut znamená, že musíme zdravotnickou dokumentaci na požádání smazat.“ V prezentaci PTC se výslovně upozorňuje na výjimky spojené s povinným uchováním a na potřebu řádného odůvodnění.",
     checklist: [
-      'Vím, kdo žádá a jakým způsobem se ověřuje jeho totožnost?',
-      'Je jasné, z čeho plyne oprávnění k údajům?',
-      'Stačí menší rozsah informací, než žadatel požaduje?',
-      'Patří rozhodnutí do mé kompetence, nebo je musím předat?',
+      "Vím, která osoba či instituce o údaje žádá?",
+      "Ověřil/a jsem její skutečné oprávnění a potřebný rozsah?",
+      "Nejde o žádost, kterou musí posoudit pověřená osoba?",
+      "Při žádosti o výmaz jsem ji předal/a k řádnému vyřízení, nikoli smazal/a data sám/sama?",
     ],
-    note: 'Konkrétní role, lhůty a schválené kanály musí doplnit a potvrdit odpovědné osoby v PTC.',
+    note: "Prezentace PTC uvádí pro zdravotnickou dokumentaci po protonové radioterapii novou archivační lhůtu 100 let. Před ostrým nasazením kurzu musí tuto konkrétní lhůtu a její právní základ potvrdit DPO nebo odpovědná osoba. V demonstraci ji proto neuvádíme jako obecně platné právní pravidlo.",
   },
   3: {
-    lead: 'Kamerový záznam může pomoci vysvětlit incident, ale obsahuje podobu a chování identifikovatelných osob. Pravidla přístupu se proto vztahují i na pouhé nahlédnutí.',
+    lead: "Kamerové záznamy slouží stanoveným bezpečnostním účelům, ale mohou zachycovat pacienty, zaměstnance i návštěvníky. Neformální „jen se podívat“ není výjimkou z pravidel.",
     photo: {
       src: 'https://images.unsplash.com/photo-1643123182527-3bd30840e7ed?auto=format&fit=crop&w=1200&q=82',
       alt: 'Ilustrační fotografie bezpečnostní kamery na stropě',
       credit: 'Franck V. / Unsplash',
       url: 'https://unsplash.com/photos/a-security-camera-mounted-to-the-ceiling-of-a-building-ujSsIk5iZmA',
     },
-    why: 'Záznam může zachycovat pacienty, návštěvníky i zaměstnance. Přístup musí mít konkrétní účel a odpovídající oprávnění. Riziko nevzniká až odesláním kopie: již zobrazení záznamu neoprávněné osobě představuje zpřístupnění údajů.',
+    why: "Interní prezentace PTC výslovně uvádí, že žádost o kamerový záznam se podává formulářem dostupným na SharePointu (SHP) – a to i v případě pouhého náhledu. Externí žádost, například od policie, vyřizuje podle školení technický úsek. Vydání záznamu třetí osobě podléhá schválení jednatelů. Informace o samotném kamerovém systému sděluje jen pověřenec nebo osoba k tomu určená jednateli.",
     examples: [
       {
-        title: 'Kolega chce rychle zkontrolovat chodbu',
-        situation: 'Kolega chce „jen na minutu“ otevřít záznam, aby zjistil, kdo odešel z oddělení.',
-        action: 'Záznam neotevírejte na základě neformální prosby. Požadavek předejte podle interního postupu, aby se ověřil účel a oprávnění.',
-        takeaway: 'I krátký náhled je přístup k osobním údajům.',
+        title: "Kolega chce jen nahlédnout",
+        situation: "Kolega se ptá, kdo se pohyboval na chodbě, a říká, že si záznam nechce nikam ukládat.",
+        action: "Záznam nezpřístupňujte neformálně. Podle interního školení je nutné vyplnit formulář na SHP i při pouhém náhledu a nechat žádost posoudit.",
+        takeaway: "Žádost se eviduje i tehdy, když nevznikne kopie.",
       },
       {
-        title: 'Návštěvník žádá kopii po incidentu',
-        situation: 'Návštěvník chce kamerový záznam, na kterém je zachycen on i další lidé.',
-        action: 'Sami video neposílejte ani nevyřezávejte. Žádost předejte odpovědnému pracovníkovi k posouzení včetně práv ostatních osob.',
-        takeaway: 'Poskytnutí kopie může ovlivnit soukromí dalších lidí.',
+        title: "Policie žádá o kamerový záznam",
+        situation: "Příslušník policie požaduje záznam události a chce jej hned předat na externí disk.",
+        action: "Nepředávejte záznam na místě bez schválení. Podle prezentace se externí žádost řeší prostřednictvím technického úseku a předání vyžaduje schválení jednatelů.",
+        takeaway: "Úřední požadavek neobchází interní schvalovací postup.",
       },
       {
-        title: 'Fotografie monitoru mobilem',
-        situation: 'Někdo navrhne pořídit snímek z kamery mobilem a rychle jej přeposlat týmu.',
-        action: 'Nezřizujte neoficiální kopii. Při bezpečnostní události postupujte přes stanovený kanál a odpovědné osoby.',
-        takeaway: 'Fotka monitoru je také další kopie osobních údajů.',
+        title: "Dotaz na fungování kamer",
+        situation: "Návštěvník chce vědět, kde se ukládají záznamy a kdo k nim má přístup.",
+        action: "Neposkytujte vlastní neověřené vysvětlení. Informace o kamerovém systému předává pověřenec nebo osoba určená jednateli.",
+        takeaway: "Komunikaci o kamerovém systému zajišťují určené osoby.",
       },
     ],
-    mistake: '„Když si nikdo záznam nestáhne, nic se nestalo.“ Rozhoduje i samotné zhlédnutí, účel přístupu a případné další zpřístupnění.',
+    mistake: "„Formulář je potřeba, jen když se video vydává.“ Podle interní prezentace PTC je evidence nutná i pro samotné nahlédnutí do záznamu.",
     checklist: [
-      'Je pro nahlédnutí jasný a oprávněný účel?',
-      'Jsem osobou, která smí ke konkrétnímu záznamu přistupovat?',
-      'Nehrozí zbytečné zpřístupnění dalších osob?',
-      'Předal/a jsem žádost schváleným postupem?',
+      "Byl vyplněn příslušný formulář žádosti na SHP?",
+      "Jde jen o náhled, nebo o předání kopie? (Postup je nutný v obou případech.)",
+      "Pokud žádá externí subjekt, zapojil se určený útvar?",
+      "Bylo před vydáním záznamu zajištěno požadované schválení jednatelů?",
     ],
+    note: "Tyto postupy přebíráme ze školení PTC 2025–2026. Před publikací interního kurzu je potřeba ověřit jejich aktuální znění. Z důvodů bezpečnosti nejsou na veřejném demu uvedeny počty, rozmístění ani plánované změny kamer.",
   },
   4: {
-    lead: 'AI může ušetřit čas při psaní, ale vložené zadání může obsahovat skutečné informace o pacientovi. Bezpečné použití záleží na schválení nástroje, účelu a typu dat.',
+    lead: "Ve zdravotnictví se AI využívá při práci s obrazovými daty, v plánování radioterapie i administrativě. Přínosy jsou reálné, ale odpovědnost za rozhodnutí, ochranu údajů a kontrolu výstupu zůstává na lidech.",
     photo: {
       src: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=82',
       alt: 'Ilustrační abstraktní grafika představující umělou inteligenci',
       credit: 'Unsplash',
       url: 'https://unsplash.com/s/photos/artificial-intelligence',
     },
-    why: 'Použití neschváleného nástroje, tzv. shadow AI, může vést k nechtěnému předání údajů externí službě. Pseudonymizace (například nahrazení jména kódem) nemusí stačit: pacienta lze někdy poznat podle kombinace diagnózy, věku, data či okolností. Výstupy AI navíc mohou obsahovat chyby.',
+    why: "Interní školení PTC upozorňuje na pět rizik: nesprávné či zkreslené výsledky, nedostatek lidského dohledu, zpracování citlivých údajů, ztrátu kontroly nad uloženými daty a etická dilemata. Shadow AI znamená používání nástrojů mimo schválený rámec organizace. U nového nástroje je podle prezentace nutné zapojit DPO nebo metodika AI a posoudit, co nástroj s daty dělá; u relevantních zdravotnických AI systémů také příslušné požadavky na bezpečnost a certifikaci. Pseudonymizace (např. kódem) neznamená anonymitu.",
     examples: [
       {
-        title: 'Marketingový text z reálného příběhu',
-        situation: 'Chcete připravit příspěvek o pacientovi a zrychlit si práci vložením jeho skutečného e-mailu do veřejného AI chatu.',
-        action: 'Do neschváleného nástroje skutečný e-mail nevkládejte. Použijte fiktivní nebo řádně schválený podklad a dodržte proces pro použití pacientského příběhu.',
-        takeaway: 'Souhlas s publikací příběhu není automatické schválení libovolného AI nástroje.',
+        title: "Vložení zprávy do externí AI",
+        situation: "Zaměstnanec chce zkrátit dopis pacientovi a nahraje celý dokument do veřejného chatbotu.",
+        action: "Nepoužívejte pro pacientské údaje neschválený nástroj. Před novým použitím AI informujte DPO nebo metodika AI a vyžádejte posouzení nástroje i účelu.",
+        takeaway: "Úspora času neopravňuje předávat citlivá data externí službě.",
       },
       {
-        title: 'Odstranili jste jméno, ale ne souvislosti',
-        situation: 'V zadání zůstane vzácná diagnóza, přibližný věk, datum návštěvy a popis unikátní léčby.',
-        action: 'Předpokládejte, že kombinace těchto údajů může být stále identifikující. Pro obecnou šablonu použijte zcela fiktivní situaci.',
-        takeaway: 'Odstranění jména není totéž co anonymizace.',
+        title: "Jméno nahradíte kódem",
+        situation: "Ze zprávy odstraníte jméno, ale ponecháte kombinaci vzácné diagnózy, věku a termínu léčby.",
+        action: "Nespoléhejte na samotnou pseudonymizaci. I kombinace nepřímých údajů může člověka identifikovat. Pro běžné textové šablony použijte fiktivní zadání.",
+        takeaway: "Pseudonymizovaná data mohou být stále osobními údaji.",
       },
       {
-        title: 'Obecná šablona pozvánky',
-        situation: 'Potřebujete návrh obecného textu pro informační akci bez informací o konkrétních pacientech.',
-        action: 'Použijte schválený nástroj, zadejte pouze obecný nebo fiktivní obsah a před použitím vše zkontrolujte.',
-        takeaway: 'AI pomáhá s návrhem, odpovědnost za výsledek má člověk.',
+        title: "AI navrhne přesvědčivý odborný text",
+        situation: "Nástroj připraví text o léčbě, ale uvede klinický výsledek, který nedokážete doložit.",
+        action: "Odborný obsah ověřte u kompetentního pracovníka a ve spolehlivém podkladu. Chybné nebo nevhodné výstupy hlaste podle platného interního postupu.",
+        takeaway: "AI je podpora práce, nikoli náhrada odborného úsudku.",
       },
     ],
-    mistake: '„Když AI vytvoří profesionálně vypadající text, musí být správný.“ AI může vymyslet i přesvědčivé, ale nepravdivé informace. Zvlášť zdravotnická tvrzení vždy ověřujte.',
+    mistake: "„Když mám AI nástroj v počítači, je tím automaticky schválený pro zdravotnická data.“ Schválení konkrétního nástroje, účelu i typu údajů je nutné ověřit; volně dostupné chatboty nebo překladače mohou být příkladem shadow AI.",
     checklist: [
-      'Je tento AI nástroj schválený pro daný účel?',
-      'Nevkládám skutečné nebo zpětně identifikovatelné údaje pacientů?',
-      'Stačí k úkolu obecný či fiktivní příklad?',
-      'Zkontroloval/a jsem odbornou a věcnou správnost výstupu?',
+      "Vím, zda je AI nástroj a zamýšlené použití schváleno?",
+      "Před novým nástrojem nebo účelem jsem zapojil/a DPO či metodika AI?",
+      "Nevkládám osobní, zdravotní ani jinak identifikující údaje bez odpovídajícího schválení?",
+      "Ověřil/a jsem správnost výstupu a vím, kam nahlásit problematický výsledek?",
     ],
-    note: 'Schválení nástroje pro jeden typ práce neznamená automaticky povolení zpracování zdravotních údajů. Konkrétní pravidla pro PTC musí potvrdit odpovědné osoby.',
+    note: "Školení 2025–2026 uvádělo, že pravidla používání AI v PTC se připravují. Demo proto neprohlašuje žádný konkrétní komerční AI nástroj za schválený. Aktuální seznam nástrojů a postupy musí potvrdit DPO / metodik AI.",
   },
 }
 
 export const recapExtras = {
-  heading: 'Co si odnést do každodenní práce',
-  intro: 'Ochrana údajů není samostatná administrativní povinnost. Uplatňuje se při každém e-mailu, telefonátu, nahlédnutí do záznamu i používání digitálních nástrojů.',
+  heading: "GDPR v PTC: chráníme důvěru pacientů",
+  intro: "Ochrana údajů je součástí kvality a bezpečnosti zdravotní péče. Odpovědnost za každodenní zacházení s daty není jen na pověřenci: každý zaměstnanec musí znát pravidla svého pracoviště.",
   questions: [
-    'Předal/a bych tyto informace také člověku, který k nim nemá pracovní důvod?',
-    'Vím, kdo schvaluje předání údajů a kam se obrátit při nejistotě?',
-    'Umím rozpoznat podezření na incident a nahlásit ho bez prodlení?',
+    "Před odesláním informací vím, kdo a proč je skutečně potřebuje?",
+    "Vím, jak předat žádost pacienta, úřadu nebo požadavek na kamerový záznam?",
+    "Umím bez odkladu ohlásit podezření na bezpečnostní incident?",
+    "Vím, komu v PTC předat návrh na nový AI nástroj či problematický AI výstup?",
   ],
-  footer: 'V pochybnostech nic neposílejte „pro jistotu“ mimo schválené postupy. Ověřte si správný další krok u odpovědné osoby.',
+  footer: "Pro vedoucí zaměstnance navíc platí povinnost zajistit, aby jejich úsek znal používané údaje, postupy při žádostech a hlášení incidentů. V pochybnostech postup ověřte u určené odpovědné osoby.",
 }
