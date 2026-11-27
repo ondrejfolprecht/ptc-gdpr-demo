@@ -16,6 +16,7 @@ const paths: Record<string, ReactNode> = {
   back: <path d="M20 12H5m6-6-6 6 6 6"/>,
   file: <><path d="M6 2h8l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/><path d="M14 2v6h5M8 13h7m-7 4h7"/></>,
   alert: <><circle cx="12" cy="12" r="9"/><path d="M12 7v5m0 4h.01"/></>,
+  info: <><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></>,
   print: <><path d="M6 8V3h12v5M6 17H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6zm12-3h.01"/></>,
   external: <path d="M14 4h6v6m-1-5-9 9m0-8H5v13h13v-5"/>,
 }
