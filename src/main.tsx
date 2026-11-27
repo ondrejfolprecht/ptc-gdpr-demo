@@ -4,7 +4,7 @@ import Icon from './Icon'
 import course from './course.json'
 import { lessons } from './lesson-content'
 import { theoryExtras, recapExtras } from './theory-content'
-import { extraTopics, aiUseCases, patientSurvey, leadership } from './course-extensions'
+import { extraTopics, aiUseCases, aiAdoption, patientSurvey, leadership } from './course-extensions'
 import { fresh, readProgress, saveProgress, score, unlocked } from './state'
 import type { Progress } from './state'
 import { MatchBoard, WordGaps, requestCards, requestTargets, aiCards, aiTargets, recapWordKeys } from './PracticeActivities'
@@ -265,6 +265,9 @@ function App() {
                 <section className="ai-context">
                   <div className="ai-context-head"><span className="theory-overline">AI VE ZDRAVOTNICTVÍ</span><h2>Kde dnes AI pomáhá?</h2><p>Nejde jen o chatovací nástroje. AI se využívá také v diagnostice, výzkumu, plánování péče a administrativě.</p></div>
                   <div className="ai-use-grid">{aiUseCases.map(item => <article key={item.title}><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
+                  <div className="ai-adoption"><strong>AI už se využívá i v českém zdravotnictví</strong><p>{aiAdoption.text}</p>
+                    <a href={aiAdoption.source.url} target="_blank" rel="noopener noreferrer" className="lesson-extension-source">Zdroj: {aiAdoption.source.name} <Icon name="external" size={14}/></a>
+                  </div>
                 </section>
                 <section className="patient-survey">
                   <div className="patient-survey-head"><span className="theory-overline">POHLED PACIENTŮ</span><h2>{patientSurvey.title}</h2><p>{patientSurvey.intro}</p></div>
