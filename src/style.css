@@ -269,3 +269,21 @@ dialog::backdrop{background:#17324677}
 
 /* The PTC AI theory block now uses prose rather than a statistical KPI. */
 .lesson-theory .study p strong{font-size:inherit;letter-spacing:normal}
+
+
+/* Skutečné a zdrojované případy z praxe zdravotnických zařízení. */
+.real-incident{margin:26px 0 22px;padding:23px;border:1px solid #e7a790;border-left:5px solid #ce754f;border-radius:13px;background:#fff1eb;color:#342c2a}
+.real-incident-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.real-incident-tag{display:inline-flex;align-items:center;gap:7px;border:1px solid #dc9e81;background:#ffe0d0;color:#903e29;border-radius:99px;padding:6px 11px;font-size:.74rem;font-weight:800;letter-spacing:.035em;text-transform:uppercase}
+.real-incident-place{font-size:.76rem;color:#866451}
+.real-incident h2{margin:0 0 15px;color:#763822;font-size:1.26rem;line-height:1.27}
+.real-incident-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.real-incident-grid h3{font-size:.82rem;margin:0 0 6px;color:#933f29}
+.real-incident-grid p{font-size:.88rem;line-height:1.58;color:#463a34}
+.real-incident-takeaway{margin-top:18px;background:#fff9f5;border:1px solid #f0d3c5;border-radius:9px;padding:13px 14px}
+.real-incident-takeaway strong{display:block;font-size:.83rem;color:#783e2c;margin-bottom:4px}
+.real-incident-takeaway p{font-size:.87rem;line-height:1.55;color:#403631}
+.real-incident-source{display:inline-flex;align-items:center;gap:7px;margin-top:15px;color:#843c29;text-decoration:underline;text-underline-offset:3px;font-size:.8rem;font-weight:650;line-height:1.5;overflow-wrap:anywhere}
+.real-incident-source:hover{color:#512517}
+.real-incident-source svg{flex:none}
+@media(max-width:650px){.real-incident{padding:15px;border-left-width:4px}.real-incident-grid{grid-template-columns:1fr;gap:14px}.real-incident-place{font-size:.74rem}.real-incident h2{font-size:1.13rem}}
