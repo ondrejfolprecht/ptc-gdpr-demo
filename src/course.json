@@ -44,26 +44,6 @@
     ]
   ],
   "intro": "Přijde e-mail s přílohou, zazvoní telefon nebo potřebujete rychle upravit text pomocí AI. V každé z těchto situací se rozhoduje o tom, kdo se dostane k údajům pacientů. V kurzu si projdete příklady z praxe a vyzkoušíte, jak správně postupovat.",
-  "mail": [
-    "Jméno a e-mail jsou osobní údaje. Diagnóza nebo lékařská zpráva obsahuje údaje o zdraví, které mají zvláštní ochranu. Sdílejte jen to, co příjemce pro daný účel potřebuje, a použijte schválený kanál.",
-    [
-      [
-        "Komu",
-        "podatelna@partner.example",
-        "Ověřte skutečnou adresu a oprávnění příjemce. Automatické doplnění adresy může nabídnout nesprávný kontakt."
-      ],
-      [
-        "Předmět a odesílatel",
-        "Re: účet",
-        "Použijte pravdivý předmět, který prozrazuje jen nezbytné informace. U příchozího požadavku ověřte skutečnou adresu odesílatele, pokud je něco podezřelé."
-      ],
-      [
-        "Příloha",
-        "Lékařská zpráva – modelová příloha.pdf",
-        "Otevřete správnou přílohu a zkontrolujte rozsah údajů i schválený způsob předání."
-      ]
-    ]
-  ],
   "incident": {
     "title": "Zjistíte, že zpráva s lékařskou přílohou už odešla nesprávnému příjemci. Jaký je první krok?",
     "choices": [
@@ -126,7 +106,7 @@
     ],
     "key": 1,
     "feedback": [
-      "Ani pouhý náhled není neformální výjimkou. Podle interního školení PTC je třeba žádost zaevidovat na SHP.",
+      "I pouhý náhled do kamerového záznamu vyžaduje vyplnění žádosti na SharePointu (SHP). Přístup musí být oprávněný a řádně evidovaný.",
       "Správně. Formulář na SHP se vyplňuje i pro náhled. U externích žádostí postupuje určený útvar a vydání záznamu podléhá příslušnému schválení.",
       "Záznam se neposílá interním chatem. Je nutné dodržet evidenci žádosti a schvalování přístupu či předání."
     ]
@@ -275,5 +255,19 @@
       "chapter": 4
     }
   ],
-  "pass": 4
+  "pass": 4,
+  "mailQuestion": {
+    "title": "Posíláte pacientovi e-mail s informacemi o léčbě. Co před odesláním zkontrolujete?",
+    "choices": [
+      "Stačí ověřit, že je příjemce uložený v kontaktech. Předmět a podpis nejsou důležité.",
+      "Ověřím adresáta a jeho oprávnění, správnou přílohu, pravdivý předmět i identifikaci odesílatele.",
+      "Zkontroluji přílohu, ale nechám původní předmět, i když neodpovídá obsahu zprávy."
+    ],
+    "key": 1,
+    "feedback": [
+      "Uložený kontakt nezaručuje správného ani oprávněného příjemce. Komunikace musí mít také jasný účel, pravdivý předmět a identifikovaného odesílatele.",
+      "Správně. Před odesláním ověřte, komu a proč zprávu posíláte, obsah příloh, předmět i správný pracovní podpis.",
+      "Zavádějící předmět může být pro pacienta matoucí. Předmět upravte podle skutečného účelu a ověřte také příjemce a podpis."
+    ]
+  }
 }
