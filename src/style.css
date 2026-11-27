@@ -266,3 +266,6 @@ dialog::backdrop{background:#17324677}
 .recap-reflection p{margin-top:16px;padding:12px;background:#eaf6f8;color:#264757;border-radius:8px;font-size:.89rem}
 @media(max-width:900px){.theory-hero{grid-template-columns:1fr}.theory-photo img{max-height:220px}.theory-checklist{grid-template-columns:1fr}}
 @media(max-width:650px){.theory-hero{padding:14px;gap:13px}.theory-examples{grid-template-columns:1fr}.theory-example{padding:14px}.theory-rule-card{padding:12px}.theory-checklist{padding:17px}.theory-pitfall{padding:14px}}
+
+/* The PTC AI theory block now uses prose rather than a statistical KPI. */
+.lesson-theory .study p strong{font-size:inherit;letter-spacing:normal}
