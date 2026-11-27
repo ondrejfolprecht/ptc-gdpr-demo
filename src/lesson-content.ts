@@ -36,7 +36,7 @@ export const lessons = {
     title: "AI, GDPR a odpovědnost v PTC",
     learn: "Seznámíte se s riziky používání AI ve zdravotnictví. Vysvětlíme si, co znamená shadow AI, proč nestačí odstranit jméno pacienta a s kým konzultovat nový AI nástroj.",
     rules: [
-      ["Shadow AI a kontrola nástrojů", "Používejte jen AI nástroje schválené pro danou práci. Pokud chcete zavést nový nástroj nebo jej využívat jiným způsobem, nejprve se obraťte na DPO nebo metodika AI."],
+      ["Shadow AI a kontrola nástrojů", "Používejte jen AI nástroje schválené pro danou práci. Pokud chcete zavést nový nástroj nebo jej využívat jiným způsobem, nejprve se obraťte na pověřence pro ochranu osobních údajů."],
       ["Ochrana údajů a pseudonymizace", "Do neschválených AI nástrojů nevkládejte osobní ani zdravotní údaje pacientů. Ani nahrazení jména kódem nemusí stačit. Pacienta mohou prozradit jiné informace ve zprávě."],
       ["Lidský dohled a kontrola výsledků", "AI může chybovat nebo vytvářet nepřesné informace. Její výsledky musí kontrolovat odpovědný pracovník, zvlášť pokud souvisejí se zdravotní péčí. Při klinickém použití je navíc nutné posoudit příslušné bezpečnostní a právní požadavky."],
     ],
