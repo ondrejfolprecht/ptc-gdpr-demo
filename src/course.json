@@ -106,9 +106,9 @@
     ],
     "key": 1,
     "feedback": [
-      "I pouhý náhled do kamerového záznamu vyžaduje vyplnění žádosti na SharePointu (SHP). Přístup musí být oprávněný a řádně evidovaný.",
-      "Správně. Formulář na SHP se vyplňuje i pro náhled. U externích žádostí postupuje určený útvar a vydání záznamu podléhá příslušnému schválení.",
-      "Záznam se neposílá interním chatem. Je nutné dodržet evidenci žádosti a schvalování přístupu či předání."
+      "Ani krátké nahlédnutí do záznamu není automaticky povolené. Nejprve je třeba ověřit účel a oprávnění přístupu.",
+      "Správně. Žádost o přístup se vždy posuzuje stanoveným postupem, ať jde o nahlédnutí nebo předání kopie.",
+      "Kamerové záznamy neposílejte neformálně v chatu. Přístup i předání musí být oprávněné."
     ]
   },
   "aiIntro": "AI může usnadnit administrativu i odbornou práci, ale její výsledky je nutné kontrolovat. Používejte pouze nástroje schválené pro daný účel. Pokud chcete začít používat nový AI nástroj, obraťte se na pověřence pro ochranu osobních údajů. Do neschválených služeb nevkládejte údaje pacientů.",
